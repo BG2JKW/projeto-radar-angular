@@ -17,7 +17,7 @@ export class AuthService {
     if(loginRest == null) return false;
     return true;
   }
-  
+
 
   constructor(
     private http: HttpClient,
@@ -26,7 +26,6 @@ export class AuthService {
   }
 
   public async fazerLogin(login:Login): Promise<Logado | undefined> {
-<<<<<<< HEAD
 
     try{
       let loginRest:Logado | undefined = await firstValueFrom(this.http.post<Logado>(`${environment.API}/login/`, login))
@@ -40,17 +39,5 @@ export class AuthService {
       console.log(err);
       return
     }
-    
   }
-=======
-    console.log(login);
-    let loginRest:Logado | undefined = await firstValueFrom(this.http.post<Logado>(`${environment.API}/login/`, login))
-    console.log(loginRest);
-    localStorage.setItem('usuarioLogado',loginRest.nome);
-    localStorage.setItem('permissao',loginRest.permissao);
-    localStorage.setItem('token',loginRest.token);
->>>>>>> Miotto/Guard
-
-  
-  
 }
