@@ -21,12 +21,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.authService = new AuthService(this.http,this.router);
   }
-<<<<<<< HEAD
-  
   public logado:boolean = false
-=======
-
->>>>>>> merge
   public email:string = ""
   public senha:string = ""
   public mensagem:string = ""
@@ -40,5 +35,4 @@ export class LoginComponent implements OnInit {
       return console.log("nada");
     }
   }
-
 }
