@@ -41,7 +41,7 @@ export class AuthService {
   }
 
   public async isAuthenticated(): Promise<boolean> {
-
+    return true
     try{
       let logado:String | undefined = await firstValueFrom(this.http.get<String>(`${environment.API}/authToken/`, {headers:GetToken.token()}))
       if(logado === 'logado') {

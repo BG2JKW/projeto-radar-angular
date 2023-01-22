@@ -13,13 +13,9 @@ export class AppComponent {
   mostrarMenu: boolean = false;
   constructor(private authService: AuthService) { }
 
-
   ngOnInit(): void {
     this.authService.mostrarNav.subscribe(
       mostrar => this.mostrarMenu = mostrar
     );
   }
-
-
-
 }

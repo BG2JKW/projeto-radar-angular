@@ -19,10 +19,14 @@ export class LoginComponent implements OnInit {
   private authService:AuthService = {} as AuthService
 
   ngOnInit(): void {
-    this.authService = new AuthService(this.http,this.router);    
+    this.authService = new AuthService(this.http,this.router);
   }
+<<<<<<< HEAD
   
   public logado:boolean = false
+=======
+
+>>>>>>> merge
   public email:string = ""
   public senha:string = ""
   public mensagem:string = ""
@@ -30,7 +34,7 @@ export class LoginComponent implements OnInit {
   async logar(){
     let logado = await this.authService.fazerLogin({email: this.email,senha: this.senha });
     if(logado == true){
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/home');
     }else{
       this.mensagem = "Email ou senha inválidos.";
       return console.log("nada");
