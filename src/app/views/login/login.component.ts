@@ -19,9 +19,9 @@ export class LoginComponent implements OnInit {
   private authService:AuthService = {} as AuthService
 
   ngOnInit(): void {
-    this.authService = new AuthService(this.http,this.router);    
+    this.authService = new AuthService(this.http,this.router);
   }
-  
+
   public email:string = ""
   public senha:string = ""
   public mensagem:string = ""

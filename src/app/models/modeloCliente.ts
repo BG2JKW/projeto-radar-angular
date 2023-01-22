@@ -1,6 +1,6 @@
 export interface Cliente{
-    id:Number 
-    nome:string | undefined 
+    id:Number
+    nome:string | undefined
     telefone:string | undefined
     email:string | undefined
     cpf:string | undefined
@@ -11,5 +11,4 @@ export interface Cliente{
     cidade:String | undefined
     estado:String | undefined
     complemento:String | undefined
-
 }
