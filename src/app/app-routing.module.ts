@@ -19,23 +19,23 @@ import { AutenticadoGuard } from './services/autenticado.guard';
 
 const routes: Routes = [
  {path: 'login', component:LoginComponent},
- {path: 'dashboard', component:DashboardComponent },
- {path: 'cadastro-cliente', component:CadastroClientesComponent},
- {path: 'lista-clientes', component:ListaClientesComponent},
- {path: 'cadastro-cliente/:id', component:CadastroClientesComponent},
- {path: 'cadastro-produto', component:CadastroProdutosComponent},
- {path: 'lista-produtos', component:ListaProdutosComponent},
- {path: 'cadastro-produto/:id', component:CadastroProdutosComponent},
- {path: 'cadastro-pedido', component:CadastroPedidosClientesComponent},
- {path: 'cadastro-pedido/:id', component:CadastroPedidosClientesComponent},
- {path: 'lista-pedidos', component: ListaPedidosComponent},
- {path: 'lista-lojas', component:  ListaLojasComponent},
- {path: 'lista-campanhas', component:ListaCampanhasComponent},
- {path: 'cadastro-loja', component:CadastroLojasComponent},
- {path: 'cadastro-campanhas', component: CadastroCampanhasComponent},
- {path: 'teste', component: TesteComponent},
- {path: 'lojas-maps', component: GoogleMapsDemoComponent},
- {path: '**', redirectTo:('/login')}
+ {path: 'home', canActivate: [AutenticadoGuard], component:HomeComponent},
+ {path: 'dashboard', canActivate: [AutenticadoGuard], component:DashboardComponent },
+ {path: 'cadastro-cliente', canActivate: [AutenticadoGuard], component:CadastroClientesComponent},
+ {path: 'lista-clientes', canActivate: [AutenticadoGuard], component:ListaClientesComponent},
+ {path: 'cadastro-cliente/:id', canActivate: [AutenticadoGuard], component:CadastroClientesComponent},
+ {path: 'cadastro-produto', canActivate: [AutenticadoGuard], component:CadastroProdutosComponent},
+ {path: 'lista-produtos', canActivate: [AutenticadoGuard], component:ListaProdutosComponent},
+ {path: 'cadastro-produto/:id', canActivate: [AutenticadoGuard], component:CadastroProdutosComponent},
+ {path: 'cadastro-pedido', canActivate: [AutenticadoGuard], component:CadastroPedidosClientesComponent},
+ {path: 'lista-pedidos', canActivate: [AutenticadoGuard], component: ListaPedidosComponent},
+ {path: 'lista-lojas', canActivate: [AutenticadoGuard], component:  ListaLojasComponent},
+ {path: 'lista-campanhas', canActivate: [AutenticadoGuard], component:ListaCampanhasComponent},
+ {path: 'cadastro-loja', canActivate: [AutenticadoGuard], component:CadastroLojasComponent},
+ {path: 'cadastro-campanhas', canActivate: [AutenticadoGuard], component: CadastroCampanhasComponent},
+ {path: 'teste', canActivate: [AutenticadoGuard], component: TesteComponent},
+ {path: 'lojas-maps', canActivate: [AutenticadoGuard], component: GoogleMapsDemoComponent},
+ {path: '**', redirectTo:'login'}
 ];
 
 @NgModule({

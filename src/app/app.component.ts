@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth-service.service';
 
 
 @Component({
@@ -8,11 +9,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'radar';
-  constructor() { }
+
+  mostrarMenu: boolean = false;
+  constructor(private authService: AuthService) { }
   
 
   ngOnInit(): void {
-    
+    this.authService.mostrarNav.subscribe(
+      mostrar => this.mostrarMenu = mostrar
+    );
   }
 
   
