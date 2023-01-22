@@ -40,7 +40,11 @@ export class AuthService {
   }
 
   public async isAuthenticated(): Promise<boolean> {
+<<<<<<< Updated upstream
 
+=======
+    return true
+>>>>>>> Stashed changes
     try{
       let logado:String | undefined = await firstValueFrom(this.http.get<String>(`${environment.API}/authToken/`, {headers:GetToken.token()}))
       if(logado === 'logado') {

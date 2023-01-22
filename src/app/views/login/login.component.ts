@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   async logar(){
     let logado = await this.authService.fazerLogin({email: this.email,senha: this.senha });
     if(logado == true){
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/home');
     }else{
       return console.log("nada");
     }
