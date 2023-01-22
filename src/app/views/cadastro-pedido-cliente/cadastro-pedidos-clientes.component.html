@@ -144,8 +144,8 @@
         <tbody *ngIf="CPFCadastrado; else blocosenao">
           <tr *ngFor="let pedidosProdutos of pedidoProduto">
             <td>{{pedidosProdutos.produto_Id}}</td>
-            <td>{{produtos[(pedidosProdutos.produto_Id)-1].nome}}</td>
-            <td>{{produtos[(pedidosProdutos.produto_Id)-1].descricao}}</td>
+            <td>{{retornaNomeProduto(pedidosProdutos.produto_Id)}}</td>
+            <td>{{retornaDescProduto(pedidosProdutos.produto_Id)}}</td>
             <td>{{pedidosProdutos.quantidade}}</td>
             <td>{{pedidosProdutos.valor | currency:'BRL':'symbol':'1.2-2'}}</td>
           </tr>

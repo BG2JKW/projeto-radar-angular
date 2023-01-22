@@ -1,8 +1,10 @@
 <p>dashboard works!</p>
 
- 
- <google-chart 
- [data]="data"
- [type]="graficoColuna" >
-
-</google-chart>
+<google-chart
+class="darkcolor"
+  style="width: 600px; height: 300px; padding: auto"
+  
+  [options]="optionsProdutos"
+  [type]="bar"
+  [data]="data"
+></google-chart>

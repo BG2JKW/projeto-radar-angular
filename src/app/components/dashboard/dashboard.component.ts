@@ -9,7 +9,10 @@ import { ChartType } from 'angular-google-charts';
 export class DashboardComponent implements OnInit {
 
 
+  bar: ChartType = ChartType.Bar;
+
   constructor() { }
+  
   public data = [
     ['Task', 'Hours per Day'],
     ['Work',     11],
@@ -18,9 +21,16 @@ export class DashboardComponent implements OnInit {
     ['Watch TV', 2],
     ['Sleep',    7]
   ];
+
+  public optionsProdutos = {
+    pieSliceText: 'label',
+    legend: { position: 'none' },
+  };
+
   public graficoColuna:ChartType = ChartType.PieChart;
   
   ngOnInit(): void {
+
   }
 
 }

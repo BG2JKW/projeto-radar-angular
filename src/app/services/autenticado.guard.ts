@@ -10,22 +10,19 @@ import { AuthService } from './auth-service.service';
   providedIn: 'root'
 })
 export class AutenticadoGuard implements CanActivate {
-  public authService: AuthService = new AuthService(this.http);
-//===================
-  constructor( 
+
+  constructor(
     private router:Router,
     private http: HttpClient
     ) {}
-//=====================
+
+    public authService: AuthService = new AuthService(this.http, this.router);
 
    canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      var token = localStorage.getItem("token")
-      console.log(token)
-      if(token == null) return false;
-      return this.authService.isAuthenticated(token.toString()).then();
-      
+
+    return this.authService.isAuthenticated();
+
   }
-  
 }

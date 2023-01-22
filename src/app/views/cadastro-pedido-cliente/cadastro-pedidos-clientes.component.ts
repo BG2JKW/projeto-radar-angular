@@ -75,8 +75,30 @@ export class CadastroPedidosClientesComponent implements OnInit {
     }
   }
 
-  retornaDadoProdutos(){
-    
+  retornaQtdEstoqueProduto(id:Number){
+    for(let i=0;i<this.produtos.length;i++){
+      if(this.produtos[i].id === id){
+        return this.produtos[i].qtd_Estoque;
+      }}
+  }
+  retornaValorProduto(id:Number){
+    for(let i=0;i<this.produtos.length;i++){
+      if(this.produtos[i].id === id){
+        return this.produtos[i].valor;
+      }
+  }}
+  retornaNomeProduto(id:Number){
+    for(let i=0;i<this.produtos.length;i++){
+      if(this.produtos[i].id === id){
+        return this.produtos[i].nome;
+      }
+  }}
+  retornaDescProduto(id:Number){
+    for(let i=0;i<this.produtos.length;i++){
+        if(this.produtos[i].id === id){
+          return this.produtos[i].descricao;
+        }
+    }
   }
 
   searchcpf(event: any) {
@@ -117,7 +139,7 @@ export class CadastroPedidosClientesComponent implements OnInit {
 
   private async editaPedido(id: Number) {
     this.titulo = "Ver Pedido"
-    debugger
+    //debugger
     this.pedido = await this.pedidoServico.buscarPedidoPorId(id)
     this.valorPedidoTotal = this.pedido?.valor_Total
     this.produtos = await this.produtoServico.listarProdutos();
@@ -214,8 +236,8 @@ export class CadastroPedidosClientesComponent implements OnInit {
                   id: this.ListaProdFake[i].idProd,
                   nome: this.ListaProdFake[i].nomeProd,
                   descricao: this.ListaProdFake[i].desc,
-                  valor: this.produtos[(this.ListaProdFake[i].idProd)-1].valor,
-                  qtd_Estoque: (this.produtos[(this.ListaProdFake[i].idProd)-1].qtd_Estoque - this.ListaProdFake[i].qtd)
+                  valor: this.retornaValorProduto(this.ListaProdFake[i].idProd),
+                  qtd_Estoque: (this.retornaQtdEstoqueProduto(this.ListaProdFake[i].idProd) - this.ListaProdFake[i].qtd)
             });
           }
       }
