@@ -9,16 +9,16 @@ import { AuthService } from './auth-service.service';
 })
 export class AutenticadoGuard implements CanActivate {
   mostrarNav = new EventEmitter<boolean>();
-  
-  constructor( 
+
+  constructor(
     private authService: AuthService,
     private router:Router
     ) {}
-  
+
        canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
+
     if(!this.authService.isAuthenticated){
       this.router.navigateByUrl("/login")
       this.mostrarNav.emit(true);
@@ -27,9 +27,5 @@ export class AutenticadoGuard implements CanActivate {
       this.mostrarNav.emit(true);
       return true;
     }
-
-    
-      
   }
-  
 }
