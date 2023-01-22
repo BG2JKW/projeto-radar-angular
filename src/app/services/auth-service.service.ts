@@ -12,7 +12,7 @@ import { GetToken } from './redirect/getToken';
 })
 export class AuthService {
 
-  mostrarNav = new EventEmitter<boolean>();
+  //mostrarNav = new EventEmitter<boolean>();
 
   constructor(
     private http: HttpClient,
@@ -41,16 +41,16 @@ export class AuthService {
   }
 
   public async isAuthenticated(): Promise<boolean> {
-    return true
+
     try{
       let logado:String | undefined = await firstValueFrom(this.http.get<String>(`${environment.API}/authToken/`, {headers:GetToken.token()}))
       if(logado === 'logado') {
         console.log("=========== Retonou TRUE no 'LOGADO' ===========");
-        this.mostrarNav.emit(true);
+        //this.mostrarNav.emit(true);
         return true;
       }else{
         console.log("=========== Retonou FALSE no 'LOGADO' ===========");
-        this.mostrarNav.emit(false);
+        //this.mostrarNav.emit(false);
         return false
       }
     }catch(err){
@@ -58,5 +58,4 @@ export class AuthService {
       return false;
     }
   }
-
 }
