@@ -15,17 +15,13 @@ export class AutenticadoGuard implements CanActivate {
     private router:Router
     ) {}
 
+    //public authService: AuthService = new AuthService(this.http, this.router);
+
        canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    if(!this.authService.isAuthenticated){
-      this.router.navigateByUrl("/login")
-      this.mostrarNav.emit(true);
-      return false;
-    }else{
-      this.mostrarNav.emit(true);
-      return true;
-    }
+    return this.authService.isAuthenticated();
+
   }
 }
