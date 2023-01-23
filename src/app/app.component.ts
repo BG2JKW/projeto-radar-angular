@@ -10,7 +10,7 @@ import { AuthService } from './services/auth-service.service';
 export class AppComponent {
   title = 'radar';
 
-  mostrarMenu: boolean = false;
+  public mostrarMenu: boolean = false;
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {

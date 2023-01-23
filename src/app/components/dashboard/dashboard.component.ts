@@ -143,95 +143,8 @@ export class DashboardComponent implements OnInit {
     this.pedidos = await this.pedidoServico.listarPedidos();//************** */
     this.clientesPorEstadoDash = await this.servicoDash.modeloClientesPorEstado();
 
-
-
-     //DADOS PRODUTOS - VENDIDOS
-    let novoProd = [];
-    for (let i = 0; i < this.produtoInfoDash.length; i++) {
-      let key = this.produtoInfoDash[i].nome;
-      let valor = this.produtoInfoDash[i].qtd_total_vendida;
-      novoProd.push([key, valor]);
-    }
-    this.dataGraficoMovimentacaoProduto = novoProd;
-
-    //DADOS PRODUTOS - ESTOQUE
-    let listaNovaProdutos = [];
-    for (let i = 0; i < this.produtos.length; i++) {
-      listaNovaProdutos.push([
-        this.produtoInfoDash[i].nome,
-        this.produtoInfoDash[i].qtd_estoque,
-      ]);
-    }
-    this.dadosQtdProdEstoqueDash = listaNovaProdutos;
-    console.log(listaNovaProdutos);
-    
-    //DADOS GRAFICO DE CALOR MAPA
-    let novoDado = [];
-    for (let i = 0; i < this.clientesPorEstadoDash.length; i++) {
-      novoDado.push([
-        `BR-${this.clientesPorEstadoDash[i].estado}`,
-        this.clientesPorEstadoDash[i].qtd_clientes
-      ]);
-    }
-    console.log(novoDado);
-    this.dadosMapaDeCalor = novoDado;
-
-    //DADOS GANHO POR PROUTOS
-    let novo = [];
-    for (let i = 0; i < this.produtoInfoDash.length; i++) {
-      let key = this.produtoInfoDash[i].nome;
-      let valor = this.produtoInfoDash[i].faturamento_total;
-      novo.push([key, valor]);
-    }
-    this.dadosGanhoPorProduto = novo;
-    console.log(novo);    
-    /*
-    this.todosClientes = await this.clienteServico.listarClientes();
-
-    this.modeloServicoProdutoInfo = await this.servicoDash.modeloProdutoInfo();
-
-
-
-    
-    /* ------------------------------------------------------------------------------*/
-
-    /*
-    
-    let listaPedidosProdutosNova = [];
-    for (let i = 0; i < this.pedidosProdutos.length; i++) {
-      listaPedidosProdutosNova.push([
-        this.produtos[this.pedidosProdutos[i].produto_Id - 1].nome,
-        this.pedidosProdutos[i].valor_Total,
-      ]);
-    }
-
-    let filtrado: any = {};
-    for (let i = 0; i < listaPedidosProdutosNova.length; i++) {
-      let dado = listaPedidosProdutosNova[i];
-      if (filtrado[dado[0]]) {
-        filtrado[dado[0]] += dado[1];
-      } else {
-        filtrado[dado[0]] = dado[1];
-      }
-    }
-    let chaves = Object.keys(filtrado);
-    let novo = [];
-    for (let i = 0; i < chaves.length; i++) {
-      let key = chaves[i];
-      let valor = filtrado[key];
-      novo.push([key, valor]);
-    }
-    this.dadosGanhoPorProduto = novo;
-    /* --------------------------------------------------------------------------------------------------*/
-
-    //DADOS QTD DE PRODUTOS VENDIDOS
-    /*
-    
-    
-    /* --------------------------------------------------------------------------------------------------*/
-
-    //DADO GANHO TOTAL
-    for (let i = 0; i < this.pedidos.length; i++) {
+     //DADO GANHO TOTAL
+     for (let i = 0; i < this.pedidos.length; i++) {
       this.valTotal += this.pedidos[i].valor_Total;
     }
 
@@ -246,23 +159,50 @@ export class DashboardComponent implements OnInit {
       this.qtdtotalProdutos += 1;
     }
 
+    //DADOS GRAFICO DE CALOR MAPA
+    let novoDado = [];
+    for (let i = 0; i < this.clientesPorEstadoDash.length; i++) {
+      novoDado.push([
+        `BR-${this.clientesPorEstadoDash[i].estado}`,
+        this.clientesPorEstadoDash[i].qtd_clientes
+      ]);
+    }
+    console.log(novoDado);
+    this.dadosMapaDeCalor = novoDado;
 
-    
+     //DADOS PRODUTOS - VENDIDOS
+    let novoProd = [];
+    for (let i = 0; i < this.produtoInfoDash.length; i++) {
+      let key = this.produtoInfoDash[i].nome;
+      let valor = this.produtoInfoDash[i].qtd_total_vendida;
+      novoProd.push([key, valor]);
+    }
+    this.dataGraficoMovimentacaoProduto = novoProd;
 
-    /* --------------------------------------------------------------------------------------------------*/
-  
-    /*
-   
+    //DADOS GANHO POR PROUTOS
+    let novo = [];
+    for (let i = 0; i < this.produtoInfoDash.length; i++) {
+      let key = this.produtoInfoDash[i].nome;
+      let valor = this.produtoInfoDash[i].faturamento_total;
+      novo.push([key, valor]);
+    }
+    this.dadosGanhoPorProduto = novo;
+    console.log(novo);    
 
+    //DADOS PRODUTOS - ESTOQUE
+    let listaNovaProdutos = [];
+    for (let i = 0; i < this.produtoInfoDash.length; i++) {
+      listaNovaProdutos.push([
+        this.produtoInfoDash[i].nome,
+        this.produtoInfoDash[i].qtd_estoque,
+      ]);
+    }
+    this.dadosQtdProdEstoqueDash = listaNovaProdutos;
+    console.log(listaNovaProdutos);
     
     /* --------------------------------------------------------------------------------------------------*/
 
     console.log('Lista estado', this.dadosMapaDeCalor);
-
-    // console.log(listaPedidosProdutosNova)
-    // console.log(this.pedidos)
-    // console.log(this.pedidosProdutos)
-    // console.log(listaNovaProdutos)
   }
 
   selecionado($event: any) {

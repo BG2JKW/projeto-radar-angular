@@ -15,7 +15,6 @@ import { LoginComponent } from './views/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ListaProdutosComponent } from './views/lista-produtos/lista-produtos.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { CarrinhoNotificacaoComponent } from './components/carrinho-notificacao/carrinho-notificacao.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { CadastroLojasComponent } from './views/cadastro-loja/cadastro-lojas.component';
