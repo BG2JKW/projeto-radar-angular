@@ -1,3 +1,5 @@
+import { GetToken } from './../redirect/getToken';
+import { Token } from '@angular/compiler';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ModeloCampanha } from './../../models/modeloCampanha';
@@ -13,22 +15,22 @@ export class CampanhaService {
 
   constructor(private http: HttpClient) { }
 
-  public campanhaList(): Observable<ModeloCampanha> {
-    const token = localStorage.getItem('token');
-    const headerToken = new HttpHeaders().set("Authorization","bearer "+token);
-    return this.http.get<ModeloCampanha>(`${environment.API}/campanhas`, {headers:headerToken}).pipe(
+  public campanhaList(): Observable<Array<ModeloCampanha>> {
+    return this.http.get<Array<ModeloCampanha>>(`${environment.API}/campanhas`, {headers:GetToken.token()}).pipe(
       res => res,
       error => error
     );
   }
 
-  public criarCampanha(value: ModeloCampanha) {
-    return this.list.push({
-      id: 0,
-      nome: "",
-      descricao: "",
-      data: new Date(),
-      urlImgPrateleira: ""
-    })
+  public criarCampanha(campanha: ModeloCampanha): Observable<ModeloCampanha> {
+    return this.http.post<ModeloCampanha>(`${environment.API}/campanhas`, campanha, {headers:GetToken.token()})
+  }
+
+  atualizarCampanha(campanha: ModeloCampanha, id: string) {
+    return this.http.post<ModeloCampanha[]>(`${environment.API}/campanhas/${id}`, campanha, {headers:GetToken.token()});
+  }
+
+  deleteCampanha(campanha: ModeloCampanha, id: string) {
+    return this.http.delete<ModeloCampanha[]>(`${environment.API}/campanhas/${id}`, {headers:GetToken.token()});
   }
 }

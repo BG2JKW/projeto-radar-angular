@@ -25,9 +25,10 @@ import { ListaCampanhasComponent } from './views/lista-campanhas/lista-campanhas
 import { TesteComponent } from './views/teste/teste.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GoogleMapsDemoModule } from './views/google-maps-demo/google-maps-demo.module';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AuthService } from './services/auth-service.service';
 import { AutenticadoGuard } from './services/autenticado.guard';
+import { ReactiveFormsModule } from '@angular/forms';
 
 registerLocaleData(ptBr)
 
@@ -58,7 +59,8 @@ registerLocaleData(ptBr)
     GoogleChartsModule,
     HttpClientModule,
     GoogleMapsDemoModule,
-    DragDropModule
+    DragDropModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService, AutenticadoGuard,
     {provide: LOCALE_ID, useValue: 'pt'},
