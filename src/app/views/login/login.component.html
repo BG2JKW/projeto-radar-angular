@@ -1,41 +1,36 @@
-<section class="vh-100" style="background-color: #b8d2e4;">
-  <div class="container h-100">
+<section class="vh-100" style="background-color: var(--bg-color-main);">
+  <div class="container h-100 justify-content-center ">
     <div class="d-flex justify-content-center align-items-center h-100">
-      <div class="col col-xl-10">
-        <div class="card" style="border-radius: 1rem;">
+      <div class="col col-xl-10 d-flex justify-content-center">
+        <div class="card" style="border-radius: 1rem; width: 80%;">
           <div class="row d-flex align-items-center">
-            
+
             <div class="col ">
 
-              <div class="card-body p-lg-5 text-black ">
+              <div class="card-body p-lg-5 text-black">
 
-                <div class="d-flex justify-content-center mb-5 ">
+                <div class="d-flex align-items-center justify-content-center mb-5 ">
                   <div class="col-rm align-items-center">
                       <img src="https://radar.farmarcas.com.br/authentication/adaa9473ff7a59a99465.svg" class="img-fluid">
                   </div>
                 </div>
-
-                <form id="contactForm" class="col d-flex align-items-center">
-
-                  <div class="row">
-                  <div class="form-floating mb-3">
-                    <input class="form-control" id="nome" name="nome" type="text" [(ngModel)]="email"
-                      placeholder="Digite o seu nome..." [ngClass]="mensagem ? 'is-invalid' : ''">
-                    <label for="nome">Email</label>
-                    <p class="mb-1 text-danger" *ngIf="mensagem">Email ou senha inválidos.</p>
+                <form id="contactForm" class="col d-flex align-items-center justify-content-center">
+                  <div class="row ">
+                    <div class="form-floating mb-3 justify-content-center">
+                      <input class="form-control" id="nome" name="nome" type="text" [(ngModel)]="email"
+                        placeholder="Digite o seu nome..." [ngClass]="mensagem ? 'is-invalid' : ''">
+                      <label for="nome">Email</label>
+                      <p class="mb-1 text-danger" *ngIf="mensagem">Email ou senha inválidos.</p>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input class="form-control" id="endereco" name="endereco" type="password" [(ngModel)]="senha"
+                        placeholder="Digite sua senha" [ngClass]="mensagem ? 'is-invalid' : ''">
+                      <label for="email">Senha</label>
+                      <p class="mb-1 text-danger" *ngIf="mensagem">Email ou senha inválidos.</p>
+                    </div>
+                    <button class="btn btn-outline-success btn-color-success" id="submitButton" type="button" (click)="logar()">Entrar</button>
                   </div>
-
-                  <div class="form-floating mb-3">
-                    <input class="form-control" id="endereco" name="endereco" type="password" [(ngModel)]="senha"
-                      placeholder="Digite sua senha" [ngClass]="mensagem ? 'is-invalid' : ''">
-                    <label for="email">Senha</label>
-                    <p class="mb-1 text-danger" *ngIf="mensagem">Email ou senha inválidos.</p>
-                  </div>
-
-                  <button class="btn btn-primary" id="submitButton" type="button" (click)="logar()">Entrar</button>
-                </div>
                 </form>
-
               </div>
             </div>
           </div>

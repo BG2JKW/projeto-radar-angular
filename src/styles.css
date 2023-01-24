@@ -12,6 +12,13 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
+
+  /**** Novas cores baseadas no RADAR ****/
+  --bg-color-main: #B0C4DE;
+  --btn-color-sucess: #40E0D0;
+
+/***************************************/
+
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
