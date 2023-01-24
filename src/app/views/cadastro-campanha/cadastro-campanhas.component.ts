@@ -1,5 +1,9 @@
+import { ModeloCampanha } from './../../models/modeloCampanha';
 import { CdkDrag, CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
+import { Form, FormBuilder, FormGroup } from '@angular/forms';
+import { CampanhaService } from 'src/app/services/servicesCampanha/campanha.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-campanhas',
@@ -7,8 +11,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cadastro-campanhas.component.css']
 })
 export class CadastroCampanhasComponent implements OnInit {
-  
-  ngOnInit(): void {
+
+  public cadastroForm: FormGroup = this.formBuilder.group({
+    nome: [''],
+    descricao: [''],
+    urlImg: ['']
+  })
+
+  constructor(
+    private campanhaService: CampanhaService,
+    private formBuilder: FormBuilder,
+    private router: Router
+    ) {  }
+
+  ngOnInit( ): void {
   }
 
   movies = [
@@ -27,6 +43,13 @@ export class CadastroCampanhasComponent implements OnInit {
     moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
   }
 
-
-
+  public criarCampanha(): void {
+    this.campanhaService.criarCampanha({
+      nome: "Wallace",
+      descricao: "Uma desc",
+      url_foto_prateleira: "www.google.com"
+    }).subscribe(() => {
+      this.router.navigate(['/campanhas'])
+    });
+  }
 }
