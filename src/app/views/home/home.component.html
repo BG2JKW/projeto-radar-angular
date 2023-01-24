@@ -1,12 +1,8 @@
-<button type="button" class="btn btn-primary"(click)="chamarFuncao()"> CHAMAR FUNCAO </button>
-<div id="layoutSidenav">
-  
-  <div id="layoutSidenav_content">
-    <main>
-      <div>
-        <div class="cantainer">
-        </div>
-      </div>
-    </main>
+<div class="d-flex justify-content-center m-3 p-3 rounded shadow">
+  <div style="background-color:white;">
+    <google-map height="600px" width="900px" [center]="center" [zoom]="zoom">
+      <map-marker #marker="mapMarker" *ngFor="let markerPosition of markerPositions"
+        [position]="markerPosition"></map-marker>
+    </google-map>
   </div>
 </div>

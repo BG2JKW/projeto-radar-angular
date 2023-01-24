@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
   public mensagem:string = ""
 
   async logar(){
+    debugger
     let logado = await this.authService.fazerLogin({email: this.email,senha: this.senha });
     if(logado == true){
       this.router.navigateByUrl('/dashboard');

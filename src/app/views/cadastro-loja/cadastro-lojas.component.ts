@@ -40,7 +40,6 @@ export class CadastroLojasComponent implements OnInit {
     console.log(this.loja)
   }
  
-
   async salvar(){
     if(this.loja && this.loja.id > 0){
       await this.lojaServico.editarLoja(this.loja)
@@ -78,27 +77,46 @@ export class CadastroLojasComponent implements OnInit {
   }
 
   popularForm(dados:any, validacao:boolean){
+    var localId = 0
+    if(this.loja && this.loja.id > 0){
+      localId = this.routerParams.snapshot.params['id']
+    }
+
     if(validacao){
-      var loja:Loja = {
-          id: 0,
-          nome: this.loja?.nome,
-          observacao: this.loja?.observacao,
-          cep: dados.cep,
-          logradouro: dados.logradouro,
-          numero: this.loja?.numero,
-          bairro: dados.bairro,
-          cidade: dados.localidade,
-          estado: dados.uf,
-          complemento: dados.complemento,
-          latitude: 0,
-          longitude: 0,
-      }
-      this.loja = loja;
-      this.cepValido = true;
+      var geocoder = new google.maps.Geocoder();
+      var latitude = 0;
+      var longitude = 0;
+      var address = `${this.loja?.logradouro}, ${this.loja?.numero} - ${this.loja?.bairro}, ${this.loja?.cidade} - ${this.loja?.estado}, ${this.loja?.cep}, BRAZIL`
+      geocoder.geocode({ 'address': address }, (results:any, status) => {
+        if (status == google.maps.GeocoderStatus.OK) {
+            latitude = results[0].geometry.location.lat();
+            longitude = results[0].geometry.location.lng();
+        } else {
+            console.log("Request failed.", this.loja);
+        }
+
+        var loja:Loja = {
+            id: localId,
+            nome: this.loja?.nome,
+            observacao: this.loja?.observacao,
+            cep: dados.cep,
+            logradouro: dados.logradouro,
+            numero: this.loja?.numero,
+            bairro: dados.bairro,
+            cidade: dados.localidade,
+            estado: dados.uf,
+            complemento: dados.complemento,
+            latitude: latitude,
+            longitude: longitude,
+        }
+        this.loja = loja;
+        console.log(latitude, longitude, this.loja);
+        this.cepValido = true;
+      });
     }
     else{
       var loja:Loja = {
-        id: 0,
+        id: localId,
         nome: this.loja?.nome,
         observacao: this.loja?.observacao,
         cep: this.loja?.cep,
