@@ -41,7 +41,7 @@ export class GoogleMapsDemoComponent {
   }
 
   center: google.maps.LatLngLiteral = {lat: -12.193618384366214, lng: -47.4268417102256};
-  zoom = 4;
+  zoom = 1;
   markerOptions: google.maps.MarkerOptions = {draggable: false};
   markerPositions: google.maps.LatLngLiteral[] = [];
 

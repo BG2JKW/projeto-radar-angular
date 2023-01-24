@@ -48,24 +48,6 @@ export class HomeComponent implements OnInit {
   markerOptions: google.maps.MarkerOptions = {draggable: false};
   markerPositions: google.maps.LatLngLiteral[] = [{lat:  -15.793889, lng: -47.882778}];
 
-  // async marcarLojas(){
-  //   if(this.lojas){
-  //     var geocoder = new google.maps.Geocoder();
-  //     var address = ""
-  //     for(let loja of this.lojas){
-  //       address = `${loja.logradouro}, ${loja.numero} - ${loja.bairro}, ${loja.cidade} - ${loja.estado}, ${loja.cep}, BRAZIL`
-  //       await geocoder.geocode({ 'address': address }, (results:any, status) => {
-  //         if (status == google.maps.GeocoderStatus.OK) {
-  //             var latitude = results[0].geometry.location.lat();
-  //             var longitude = results[0].geometry.location.lng();
-  //             this.markerPositions.push({lat: latitude, lng: longitude})
-  //         } else {
-  //             console.log("Request failed.", loja)
-  //         }
-  //       });
-  //     }
-  //   }
-  // }
   private marcarLojas(){
     if(this.lojas){
       for(let loja of this.lojas){
