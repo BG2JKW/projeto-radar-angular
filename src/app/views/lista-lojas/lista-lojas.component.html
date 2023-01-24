@@ -4,18 +4,7 @@
     <main>
       <div class="container-fluid px-4">
         <!--Conteudo-->
-        <h1 class="mt-4">Lojas Cadastradas
-          <button class="btn btn-success" (click)="novoLoja()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-add"
-              viewBox="0 0 16 16">
-              <path
-                d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
-              <path
-                d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z" />
-            </svg>
-            Novo
-          </button>
-        </h1>
+        <h1 class="mt-4 text-center">Lojas Cadastradas</h1>
 
         <hr>
 
@@ -28,9 +17,9 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="row mb-3">
-              <table *ngIf="lojas && lojas.length > 0" class="table table-bordered col-md-6">
+              <table *ngIf="lojas && lojas.length > 0" class="table shadow-lg table-round-corner">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
@@ -38,7 +27,7 @@
                     <th scope="col">Observacao</th>
                     <th scope="col">Endereço</th>
                     <th scope="col" colspan="3" style="text-align: center">
-                      <button class="btn btn-success" (click)="novoLoja()">
+                      <button class="btn btn-outline-success btn-color-success" (click)="novoLoja()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                           class="bi bi-person-add" viewBox="0 0 16 16">
                           <path
@@ -58,7 +47,7 @@
                     <td>{{ loja.observacao }}</td>
                     <td>{{ loja.logradouro }}, {{ loja.numero }} - {{ loja.bairro }}, {{ loja.cidade }} - {{ loja.estado }}, {{ loja.cep }}</td>
                     <td style="text-align: center">
-                      <a class="btn btn-warning" (click)="editarLoja(loja.id)">
+                      <a class="btn btn-outline-warning" (click)="editarLoja(loja.id)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                           class="bi bi-pencil-square" viewBox="0 0 16 16">
                           <path
@@ -68,9 +57,7 @@
                         </svg>
                         Alterar
                       </a>
-                    </td>
-                    <td style="text-align: center">
-                      <button class="btn btn-info" (click)="getLocation(loja.id)">
+                      <button class="btn btn-outline-info" (click)="getLocation(loja.id)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
                           <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
                           <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
@@ -78,6 +65,9 @@
                         Mapa
                       </button>
                     </td>
+                    <!-- <td style="text-align: center">
+
+                    </td> -->
 
                   </tr>
                 </tbody>

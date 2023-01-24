@@ -1,57 +1,117 @@
-<!-- DataTales Example -->
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-      <h4 class="m-0 font-weight-bold orange mt-2 pt-1 pb-1">Pedidos</h4>
-    </div>
-    <div class="card-body d-flex pb-1 justify-content-between">
-      <button (click)="novoPedido()" class="btn btn btn-info btn-icon-split">
-        <span class="icon text-white-50">
-          <i class="fas fa-plus"></i>
-        </span>
-        <span class="text">Novo pedido</span>
-      </button>
-    </div>
-    <div class="card-body">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-xl-7">
-              <div class="alert alert-danger" role="alert">
-                  Não existem pedidos cadastrados!
+<!-- <div id="layoutSidenav">
+  <div id="layoutSidenav_content">
+    <main>
+      <div class="container-fluid px-4">
+        <h1 class="mt-4 text-center">Pedidos</h1>
+        <hr>
+        DataTales Example
+          <div class="card-body d-flex pb-1 justify-content-between">
+            <button (click)="novoPedido()" class="btn btn btn-info btn-icon-split">
+              <span class="icon text-white-50">
+                <i class="fas fa-plus"></i>
+              </span>
+              <span class="text">Novo pedido</span>
+            </button>
+          </div>
+          <div class="card shadow mb-4 container mt-5">
+              <div class="row justify-content-center" *ngIf="pedidos?.length == 0">
+                <div class="col-lg-8 col-xl-7">
+                  <div class="alert alert-danger text-center" role="alert">
+                      Não existem pedidos cadastrados!
+                  </div>
+                </div>
               </div>
+            <div class="table-responsive">
+              <table
+                class="table shadow-lg table-round-corner"
+                id="dataTable"
+                width="100%"
+                cellspacing="0"
+              >
+                <thead>
+                  <tr class="orange">
+                    <th>Pedido</th>
+                    <th>CPF Cliente</th>
+                    <th>Valor Total</th>
+                    <th>Data</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let pedido of pedidos">
+                    <td>{{ pedido.id }}</td>
+                    <td *ngIf="pedido && pedido.cliente_Id">
+                      {{ pedido.cliente_Id }}
+                    </td>
+                    <td>{{ pedido.valor_Total }}</td>
+                    <td>{{ pedido.data }}</td>
+                    <td class="text-center">
+                      <button (click)="editarPedido(pedido.id)" class="btn p-0">
+                        <i class="fas fa-eye text-gray-600" role="button"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-      <div class="table-responsive">
-        <table
-          class="table table-bordered"
-          id="dataTable"
-          width="100%"
-          cellspacing="0"
-        >
-          <thead>
-            <tr class="orange">
-              <th>Pedido</th>
-              <th>CPF Cliente</th>
-              <th>Valor Total</th>
-              <th>Data</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let pedido of pedidos">
-              <td>{{ pedido.id }}</td>
-              <td *ngIf="pedido && pedido.cliente_Id">
-                {{ pedido.cliente_Id }}
-              </td>
-              <td>{{ pedido.valor_Total }}</td>
-              <td>{{ pedido.data }}</td>
-              <td class="text-center">
-                <button (click)="editarPedido(pedido.id)" class="btn p-0">
-                  <i class="fas fa-eye text-gray-600" role="button"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        </div>
+      </main>
+    </div>
+  </div> -->
+
+  <div id="layoutSidenav">
+    <div id="layoutSidenav_content">
+      <main>
+        <div class="container-fluid px-4">
+          <!--Conteudo-->
+          <h1 class="mt-4 text-center">Pedidos Cadastrados</h1>
+          <hr>
+          <div>
+            <div class="card-body" style="border-radius: 25px;">
+              <div class="row justify-content-center">
+                <div class="col-lg-8 col-xl-7">
+                  <div *ngIf="pedidos?.length == 0" class="alert alert-danger" role="alert">
+                      Não existem clientes cadastrados!
+                  </div>
+                </div>
+              </div>
+
+              <table *ngIf="pedidos && pedidos.length > 0" class="table shadow-lg table-round-corner" style="background-color: #fff;">
+                <thead>
+                  <tr>
+                    <th scope="col">Pedido</th>
+                    <th scope="col">CPF Cliente</th>
+                    <th scope="col">Valor Total</th>
+                    <th scope="col">Data</th>
+                    <th scope="col" colspan="3" style="text-align: center;">
+                      <button class="btn btn-outline-success btn-color-success" (click)="novoPedido()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-add" viewBox="0 0 16 16">
+                          <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
+                          <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
+                        </svg>
+                        Novo
+                      </button>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let pedido of pedidos">
+                    <td>{{ pedido.id }}</td>
+                    <td *ngIf="pedido && pedido.cliente_Id">{{ pedido.cliente_Id }}</td>
+                    <td>{{ pedido.valor_Total }}</td>
+                    <td>{{ pedido.data }}</td>
+                    <td class="text-center">
+                      <button (click)="editarPedido(pedido.id)" class="btn p-0">
+                        <i class="fas fa-eye text-gray-600" role="button"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   </div>
-  

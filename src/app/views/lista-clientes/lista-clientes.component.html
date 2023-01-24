@@ -1,23 +1,15 @@
 <div id="layoutSidenav">
- 
+
   <div id="layoutSidenav_content">
     <main>
       <div class="container-fluid px-4">
         <!--Conteudo-->
-        <h1 class="mt-4">Clientes Cadastrados
-          <button class="btn btn-success" (click)="novoCliente()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-add" viewBox="0 0 16 16">
-              <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
-              <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
-            </svg>
-            Novo
-          </button>
-        </h1>
+        <h1 class="mt-4 text-center">Clientes Cadastrados</h1>
 
         <hr>
 
         <div >
-          <div class="card-body">
+          <div class="card-body" style="border-radius: 25px;">
             <div class="row justify-content-center">
               <div class="col-lg-8 col-xl-7">
                 <div *ngIf="clientes?.length == 0" class="alert alert-danger" role="alert">
@@ -26,9 +18,7 @@
               </div>
             </div>
 
-            <table *ngIf="clientes && clientes.length > 0"
-              class="table table-bordered"
-            >
+            <table *ngIf="clientes && clientes.length > 0" class="table shadow-lg table-round-corner">
               <thead>
                 <tr>
                   <th scope="col">ID</th>
@@ -36,15 +26,8 @@
                   <th scope="col">Telefone</th>
                   <th scope="col">Email</th>
                   <th scope="col">CPF</th>
-                  <!--<th scope="col">Cep</th>
-                <th scope="col">Logradouro</th>
-                <th scope="col">Número</th>
-                <th scope="col">Complemento</th>
-                <th scope="col">Bairro</th>
-                <th scope="col">Cidade</th>
-                <th scope="col">Estado</th>-->
                   <th scope="col" colspan="3" style="text-align: center">
-                    <button class="btn btn-success" (click)="novoCliente()">
+                    <button class="btn btn-outline-success btn-color-success" (click)="novoCliente()">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-add" viewBox="0 0 16 16">
                         <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
                         <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
@@ -52,6 +35,7 @@
                       Novo
                     </button>
                   </th>
+
                 </tr>
               </thead>
               <tbody>
@@ -61,16 +45,9 @@
                   <td>{{ cliente.telefone }}</td>
                   <td>{{ cliente.email }}</td>
                   <td>{{ cliente.cpf }}</td>
-                  <!--<<td>{{ cliente.cep }}</td>
-                <td>{{ cliente.logradouro }}</td>
-                <td>{{ cliente.numero }}</td>
-                <td>{{ cliente.complemento }}</td>
-                <td>{{ cliente.bairro }}</td>
-                <td>{{ cliente.cidade }}</td>
-                <td>{{ cliente.estado }}</td>-->
                   <td style="text-align: center">
                     <a
-                      class="btn btn-warning"
+                      class="btn btn-outline-warning"
                       (click)="editarCliente(cliente.id)"
                       >
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -79,17 +56,18 @@
                       </svg>
                       Alterar
                       </a>
+
+                      <button class="btn btn-outline-danger" (click)="deletar(cliente.id)" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
+                          <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
+                          <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708Z"/>
+                        </svg>
+                        Excluir
+                      </button>
                   </td>
-                  <td style="text-align: center">
-                    <button class="btn btn-danger" (click)="deletar(cliente.id)" >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
-                        <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
-                        <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708Z"/>
-                      </svg>
-                      Excluir
-                    </button>
-                  </td>
-                 
+                  <!-- <td style="text-align: center">
+
+                  </td> -->
                 </tr>
               </tbody>
             </table>

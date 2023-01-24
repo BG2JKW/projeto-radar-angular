@@ -1,0 +1,24 @@
+.table-round-corner {
+  width: 100%;
+  text-align: center;
+  overflow:hidden;
+  border: solid #ccc 1px;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+}
+
+.btn-color-success {
+  font-weight: 700;
+  color: #008B8B;
+  /* background-color: #008B8B; */
+  border-color: #008B8B;
+}
+
+.btn-color-success:hover {
+  /* color: var(--btn-color-sucess); */
+  color: #fff;
+  background-color: #19b4b8;
+  border-color: #008B8B;
+  transition: 500ms;
+}

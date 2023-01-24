@@ -1,0 +1,13 @@
+.btn-color-success {
+  font-weight: 700;
+  color: #fff;
+  background-color: #008B8B;
+  border-color: #008B8B;
+}
+
+.btn-color-success:hover {
+  /* color: var(--btn-color-sucess); */
+  color: #fff;
+  background-color: #19b4b8;
+  border-color: #008B8B;
+}
