@@ -60,7 +60,8 @@ registerLocaleData(ptBr)
     GoogleMapsDemoModule,
     DragDropModule,
     GoogleMapsDemoModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GoogleMapsModule,
   ],
   providers: [AuthService, AutenticadoGuard,
     {provide: LOCALE_ID, useValue: 'pt'},
