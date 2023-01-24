@@ -20,7 +20,7 @@
                 <div class="ml-3 border border-black">
                     <google-map height="600px" width="900px" [center]="center" [zoom]="zoom">
                         <map-marker #marker="mapMarker" *ngFor="let markerPosition of markerPositions"
-                            [position]="markerPosition"></map-marker>
+                            [position]="markerPosition" [options]="markerOptions"></map-marker>
                     </google-map>
                 </div>
             </div>

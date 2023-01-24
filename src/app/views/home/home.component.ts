@@ -45,15 +45,17 @@ export class HomeComponent implements OnInit {
 
   center: google.maps.LatLngLiteral = {lat: -15.793889, lng: -47.882778};
   zoom = 5;
-  markerOptions: google.maps.MarkerOptions = {draggable: false};
+  markerOptions: google.maps.MarkerOptions = { 
+    draggable: false, 
+    icon: 'https://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/Map-Marker-Marker-Inside-Azure-icon.png',
+  };
   markerPositions: google.maps.LatLngLiteral[] = [{lat:  -15.793889, lng: -47.882778}];
 
   private marcarLojas(){
     if(this.lojas){
       for(let loja of this.lojas){
-        let cords = {lat: loja.latitude, lng: loja.longitude}
-
-        this.markerPositions.push(cords)
+        let cords = { lat: loja.latitude, lng: loja.longitude }
+        this.markerPositions.push(cords);
       }
     }
   }
