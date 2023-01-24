@@ -37,7 +37,7 @@ export class CadastroPedidosClientesComponent implements OnInit {
 
   public titulo:String = "Novo Pedido"
 
-  public tamanhoPedido:number | any
+  public pedidoIdBd:number | any = 0
   
   public ListaProdFake: any  = [] 
   public pedidoProdutoFake:[] | undefined = []
@@ -204,7 +204,6 @@ export class CadastroPedidosClientesComponent implements OnInit {
   }
 
   private async buscaTamanhoListaPedido(){
-    this.tamanhoPedido = await this.pedidoServico.listarTamanhoPedidos();
     this.produtos = await this.produtoServico.listarProdutos();
     
   }
@@ -222,11 +221,14 @@ export class CadastroPedidosClientesComponent implements OnInit {
         valor_Total: this.valorPedidoTotal,
         data: this.pedidoForm.data,
       });
-      
+
+      await this.retonarIdPedido();
+      console.log("===================[ " + this.pedidoIdBd + "]===================");
+
       for(let i=0;i<this.ListaProdFake.length;i++){
         await this.pedidoProdutoServico.criarPedidoProduto({
             id: 0,
-            pedido_Id: this.tamanhoPedido+1,
+            pedido_Id: this.pedidoIdBd,
             produto_Id: this.ListaProdFake[i].idProd,
             quantidade: this.ListaProdFake[i].qtd,
             valor: this.ListaProdFake[i].valTotal
@@ -249,6 +251,17 @@ export class CadastroPedidosClientesComponent implements OnInit {
 
   public cancelar():void{
     this.router.navigateByUrl('/lista-pedidos');
+  }
+
+  async retonarIdPedido(){
+    var pedidos = await this.pedidoServico.listarPedidos();
+    if(pedidos){
+      for(let i =0;i<pedidos.length;i++){
+        if(i == pedidos.length){
+          this.pedidoIdBd = Number(pedidos[i].id);
+        }
+      }
+    }
   }
 
 

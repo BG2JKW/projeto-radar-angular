@@ -1,13 +1,11 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { CadastroCampanhasComponent } from './views/cadastro-campanha/cadastro-campanhas.component';
 import { CadastroClientesComponent } from './views/cadastro-cliente/cadastro-clientes.component';
 import { CadastroLojasComponent } from './views/cadastro-loja/cadastro-lojas.component';
 import { CadastroPedidosClientesComponent } from './views/cadastro-pedido-cliente/cadastro-pedidos-clientes.component';
 import { CadastroProdutosComponent } from './views/cadastro-produto/cadastro-produtos.component';
 import { HomeComponent } from './views/home/home.component';
-import { ListaCampanhasComponent } from './views/lista-campanhas/lista-campanhas.component';
 import { ListaClientesComponent } from './views/lista-clientes/lista-clientes.component';
 import { ListaLojasComponent } from './views/lista-lojas/lista-lojas.component';
 import { ListaPedidosComponent } from './views/lista-pedidos/lista-pedidos.component';
@@ -32,10 +30,8 @@ const routes: Routes = [
  {path: 'cadastro-pedido/:id', canActivate: [AutenticadoGuard], component:CadastroPedidosClientesComponent},
  {path: 'lista-pedidos', canActivate: [AutenticadoGuard], component: ListaPedidosComponent},
  {path: 'lista-lojas', canActivate: [AutenticadoGuard], component:  ListaLojasComponent},
- {path: 'lista-campanhas', canActivate: [AutenticadoGuard], component:ListaCampanhasComponent},
  {path: 'cadastro-loja', canActivate: [AutenticadoGuard], component:CadastroLojasComponent},
  {path: 'cadastro-loja/:id', canActivate: [AutenticadoGuard], component:CadastroLojasComponent},
- {path: 'cadastro-campanhas', canActivate: [AutenticadoGuard], component: CadastroCampanhasComponent},
  {path: 'lojas-maps/:id', canActivate: [AutenticadoGuard], component: GoogleMapsDemoComponent},
  {path: '**', component:NotFoundComponent}
 ];
