@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { firstValueFrom } from "rxjs";
 import { Produto } from "src/app/models/modeloProduto";
 import { environment } from "src/environments/environment";

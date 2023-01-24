@@ -41,8 +41,8 @@ export class GoogleMapsDemoComponent {
   }
 
   center: google.maps.LatLngLiteral = {lat: -12.193618384366214, lng: -47.4268417102256};
-  zoom = 4;
-  markerOptions: google.maps.MarkerOptions = {draggable: false};
+  zoom = 1;
+  markerOptions: google.maps.MarkerOptions = {draggable: false, icon: 'https://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/Map-Marker-Marker-Inside-Azure-icon.png'};
   markerPositions: google.maps.LatLngLiteral[] = [];
 
   async marcarLoja(id:Number){
@@ -63,5 +63,6 @@ export class GoogleMapsDemoComponent {
     });
     }
   }
+  
 
 }

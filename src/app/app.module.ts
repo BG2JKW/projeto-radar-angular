@@ -18,7 +18,8 @@ import { ListaPedidosComponent } from './views/lista-pedidos/lista-pedidos.compo
 import { ListaLojasComponent } from './views/lista-lojas/lista-lojas.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GoogleMapsDemoModule } from './views/google-maps-demo/google-maps-demo.module';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { GoogleMapsModule } from '@angular/google-maps';
 import { AutenticadoGuard } from './services/guard/autenticado.guard';
 import { AuthService } from './services/guard/auth-service.service';
 import { NotFoundComponent } from './views/not-found/not-found.component';
@@ -55,7 +56,8 @@ registerLocaleData(ptBr)
     GoogleMapsDemoModule,
     DragDropModule,
     GoogleMapsDemoModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GoogleMapsModule,
   ],
   providers: [AuthService, AutenticadoGuard,
     {provide: LOCALE_ID, useValue: 'pt'},
