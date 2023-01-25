@@ -1,215 +1,174 @@
-<div class="h-100 w-100" style="width: 95%; height: 95%; margin: 0 auto;">
-  <div class="card-header pt-4">
-    <h3 class="text-center mt-3">Relatórios</h3>
-  </div>
+<div>
   <!-- Div Dashboard -->
-  <br>
-  <div class="row d-flex w-100 p-2">
+  <div class="row mt-4 mb-4">
 
-    <div class="">
+    <div class="card border-left-primary py-2 col-2 ml-4 mr-4 table-round-corner shadow">
+      <div class="card-body ">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class=" text-xs font-weight-bold text-primary text-uppercase">
+              Total Clientes
+            </div>
+            <div class="display-4 h5 mb-0 font-weight-bold text-gray-800">
+              {{ qtdTotalClientes }}
+            </div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-user fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <div class="d-flex align-items-stretch ">
-
-        <!-- ============================= CARDS DA ESQUEDA *INICIO* =============================-->
-
-        <div class="d-flex flex-column w-100">
-        <div class="card border-left-primary h-50 py-2">
-          <div class="card-body ">
-            <div class="row no-gutters align-items-center">
-              <div class="col mr-2">
-                <div
-                  class=" text-xs font-weight-bold text-primary text-uppercase mb-1"
-                >
-                  Total Clientes
-                </div>
-                <div class="display-4 h5 mb-0 font-weight-bold text-gray-800">
-                  {{ qtdTotalClientes }}
-                </div>
-              </div>
+    <div class="card border-left-info py-2 col-2 table-round-corner shadow">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-info text-uppercase ">
+              Total Produtos
+            </div>
+            <div class="row no-gutters align-items-center justify-content-center">
               <div class="col-auto">
-                <i class="fas fa-user fa-2x text-gray-300"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      <br>
-      <div class="card border-left-info h-50 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div
-                class="text-xs font-weight-bold text-info text-uppercase mb-1"
-              >
-                Total Produtos
-              </div>
-              <div class="row no-gutters align-items-center">
-                <div class="col-auto">
-                  <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                    {{ qtdtotalProdutos }}
-                  </div>
+                <div class="display-4 h5 mb-0 font-weight-bold text-gray-800">
+                  {{ qtdtotalProdutos }}
                 </div>
               </div>
             </div>
-            <div class="col-auto">
-              <i class="fas fa-suitcase fa-2x text-gray-300"></i>
-            </div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-suitcase fa-2x text-gray-300"></i>
           </div>
         </div>
       </div>
-      <br>
-      <div class="card border-left-success h-50 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div
-                class="text-xs font-weight-bold text-success text-uppercase mb-1"
-              >
-                Ganho Total
-              </div>
-              <div class=" display-4 h5 mb-0 font-weight-bold text-gray-800">
-                {{ valTotal | currency : "BRL" : "symbol" : "1.2-2" }}
-              </div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
-      <div class="card border-left-warning h-50 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div
-                class="text-xs font-weight-bold text-warning text-uppercase mb-1"
-              >
-                TOTAL PEDIDOS
-              </div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">
-                {{ qtdTotalPedidos }}
-              </div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-truck fa-2x text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
 
-
-    <!-- ============================= CARDS DA ESQUEDA *FIM* =============================-->
-
-      <div class="order-2 col-6 ">
-
-        <div class="col-xl col-lg w-100%">
-          <div class="card mb-4">
-            <!-- Relatório Anual -->
-            <div class="card-header py-3 w-100">
-              <h6 class="m-0 font-weight-bold orange">
-                Movimentação de produto
-              </h6>
+    <div class="card border-left-warning py-2 col-2 ml-4 table-round-corner shadow">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+              TOTAL PEDIDOS
             </div>
-            <!-- Card Body -->
-            <div class="card-body">
-              <div class="pt-4 pb-2 text-center">
-                <google-chart
-                  style="width: 600px; height: 300px; padding: auto"
-                  [type]="tipoGraficoMovimentacaoProdutos"
-                  [data]="dataGraficoMovimentacaoProduto"
-                  [options]="optionsGraficoMovimentacaoProduto"
-                >
-                </google-chart>
-              </div>
+            <div class="display-4 h5 mb-0 font-weight-bold text-gray-800">
+              {{ qtdTotalPedidos }}
             </div>
           </div>
-        </div>
-
-        <div class="col-xl col-lg w-100% ">
-          <div class="card mb-4">
-            <!-- Card Header - Dropdown -->
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-              <h6 class="m-0 font-weight-bold orange">
-                Quantidade de Produtos em Estoque
-              </h6>
-            </div>
-            <!-- Card Body -->
-            <div class="card-body">
-              <google-chart
-              class="darkcolor"
-                style="width: 600px; height: 300px; padding: auto"
-                (select)="selecionado($event)"
-                [options]="optionsGraficoProdutosEstoque"
-                [type]="tipoGraficoQtdProdutosEstoque"
-                [data]="dadosQtdProdEstoqueDash"
-              ></google-chart>
-              <div
-                *ngIf="descProdutosCharts.clicado"
-                class="text-center darkcolor"
-              >
-                <hr />
-                {{ descProdutosCharts.nomeProduto }}<br />
-                Quantidade Vendida: {{ descProdutosCharts.qtdVendida }}<br />
-                Quantidade em Estoque: {{ descProdutosCharts.qtdEstoque }}
-              </div>
-            </div>
+          <div class="col-auto">
+            <i class="fas fa-truck fa-2x text-gray-300"></i>
           </div>
         </div>
-
-      </div>
-
-      <div class="order-3 col-4 p-0">
-
-        <div class="col-xl col-lg w-100% p-0">
-          <div class="card mb-4">
-            <!-- Card Header - Dropdown -->
-            <div
-              class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
-            >
-              <h6 class="m-0 font-weight-bold orange">Clientes por Região</h6>
-            </div>
-            <!-- Card Body -->
-            <div class="card-body d-flex">
-              <google-chart
-                [type]="tipoGraficoMapaDeCalor"
-                [options]="optionsMapaDeCalor"
-                [data]="dadosMapaDeCalor"
-              ></google-chart>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-xl col-lg w-100% p-0">
-          <div class="card mb-4">
-            <!-- Relatório Anual -->
-            <div class="card-header py-3 w-100 ">
-              <h6 class="m-0 font-weight-bold orange">Ganho por Medicamento</h6>
-            </div>
-            <!-- Card Body -->
-            <div class="card-body">
-              <google-chart class="darkcolor"
-                style="width: 600px; height: 300px; padding: auto"
-                (select)="selecionadoPizza($event)"
-                [type]="tipoGraficoGanhosPorProduto"
-                [data]="dadosGanhoPorProduto"
-                [options]="optionsGraficoGanhoPorProduto"
-              ></google-chart>
-              <div *ngIf="descPedidosCharts.clicado" class="darkcolor text-center">
-                <hr />
-                {{ descPedidosCharts.nomeProduto }}<br />
-                {{
-                  descPedidosCharts.valorTotal
-                    | currency : "BRL" : "symbol" : "1.2-2"
-                }}
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
+
+    <div class="card border-left-success py-2 col mr-4 ml-4 table-round-corner shadow">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+              Ganho Total
+            </div>
+            <div class=" display-4 h5 mb-0 font-weight-bold text-gray-800">
+              {{ valTotal | currency : "BRL" : "symbol" : "1.2-2" }}
+            </div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="card mb-4 table-round-corner col-lg-7 mr-4 ml-4 shadow">
+      <!-- Relatório Anual -->
+      <div class="card-header py-3 ">
+        <h6 class="m-0 font-weight-bold">
+          Movimentação de produto
+        </h6>
+      </div>
+      <!-- Card Body -->
+      <div class="card-body justify-content-center">
+        <!-- <div class="pt-4 pb-2 text-center"> -->
+          <google-chart
+            style="width: 600px; height: 300px; padding: auto"
+            [type]="tipoGraficoMovimentacaoProdutos"
+            [data]="dataGraficoMovimentacaoProduto"
+            [options]="optionsGraficoMovimentacaoProduto"
+          >
+          </google-chart>
+        <!-- </div> -->
+      </div>
+    </div>
+
+    <div class="card mb-4 table-round-corner col mr-4 shadow p-0" style="height: 45vh;">
+      <!-- Card Header - Dropdown -->
+      <div class="card-header py-3 d-flex align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold">Clientes por Região</h6>
+      </div>
+      <!-- Card Body -->
+      <div class="card-body d-flex justify-content-center p-0">
+        <google-chart
+          class="p-0 m-0"
+          [type]="tipoGraficoMapaDeCalor"
+          [options]="optionsMapaDeCalor"
+          [data]="dadosMapaDeCalor"
+        ></google-chart>
+      </div>
+    </div>
+  </div>
 
   </div>
-</div>
+
+  <div class>
+    <div class="row">
+      <div class="card mb-4 table-round-corner col mr-4 ml-4 shadow">
+        <!-- Relatório Anual -->
+        <div class="card-header py-3 w-100 ">
+          <h6 class="m-0 font-weight-bold orange">Ganho por Medicamento</h6>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <google-chart class="darkcolor"
+            style="width: 600px; height: 300px; padding: auto"
+            (select)="selecionadoPizza($event)"
+            [type]="tipoGraficoGanhosPorProduto"
+            [data]="dadosGanhoPorProduto"
+            [options]="optionsGraficoGanhoPorProduto"
+          ></google-chart>
+          <div *ngIf="descPedidosCharts.clicado" class="darkcolor text-center">
+            <hr />
+            {{ descPedidosCharts.nomeProduto }}
+            {{ descPedidosCharts.valorTotal | currency : "BRL" : "symbol" : "1.2-2" }}
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-4 table-round-corner col mr-4 shadow">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold orange">
+            Quantidade de Produtos em Estoque
+          </h6>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <google-chart
+          class="darkcolor"
+            style="width: 600px; height: 300px; padding: auto"
+            (select)="selecionado($event)"
+            [options]="optionsGraficoProdutosEstoque"
+            [type]="tipoGraficoQtdProdutosEstoque"
+            [data]="dadosQtdProdEstoqueDash"
+          ></google-chart>
+          <div *ngIf="descProdutosCharts.clicado" class="text-center darkcolor">
+
+            {{ descProdutosCharts.nomeProduto }}<br />
+            Quantidade Vendida: {{ descProdutosCharts.qtdVendida }}<br />
+            Quantidade em Estoque: {{ descProdutosCharts.qtdEstoque }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

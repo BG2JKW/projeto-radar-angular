@@ -52,7 +52,7 @@ export class DashboardComponent implements OnInit {
     region: 'BR',
     resolution: 'provinces',
     backgroundColor: '#81d4fa',
-    height: 300,
+    height: 350,
     align: 'center',
     colorAxis: {
       colors: [
@@ -86,10 +86,14 @@ export class DashboardComponent implements OnInit {
   public dataGraficoMovimentacaoProduto: any = [];
   tipoGraficoMovimentacaoProdutos: ChartType = ChartType.Bar;
   public optionsGraficoMovimentacaoProduto = {
-    width: 600,
-    legend: { position: 'none' },
+    // heigth: 800,
+    width: 850,
+    // legend: { position: 'none' },
     bar: { groupWidth: '80%' },
-    
+    // width: 600,
+    height: 400,
+    legend: { position: 'none' },
+    isStacked: true
   };
   // ==========================================================================
 
@@ -99,7 +103,7 @@ export class DashboardComponent implements OnInit {
   public optionsGraficoGanhoPorProduto = {
     pieSliceText: 'none',
     pieHole: 0.4,
-    
+
   };
 
   // ==========================================================================
