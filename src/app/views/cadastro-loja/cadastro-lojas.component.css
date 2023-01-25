@@ -13,6 +13,17 @@
   transition: 400ms;
 }
 
+.btn-cancel {
+  font-weight: 700;
+  border-color: #4F5760;
+  color: #4F5760;
+}
+
+.btn-cancel:hover {
+  border-color: #8D97A2;
+  background-color: #8D97A2;
+}
+
 .btn-color-success {
   font-weight: 700;
   color: #008B8B;
