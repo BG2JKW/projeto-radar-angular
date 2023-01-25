@@ -26,6 +26,7 @@
 }
 
 .btn-cancel:hover {
+  color: #fff;
   border-color: #8D97A2;
   background-color: #8D97A2;
 }
