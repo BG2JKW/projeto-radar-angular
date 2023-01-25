@@ -1,9 +1,9 @@
-<div id="layoutSidenav" class="card h-100 w-100" style="width: 95%; height: 95%; margin: 0 auto;">
-  <div id="layoutSidenav_content">
+<div id="layoutSidenav" class="h-100 w-100" style="width: 95%; height: 95%; margin: 0 auto;">
+  <div id="layoutSidenav_content" class="pt-3">
     <main>
       <div class="">
         <!--Conteudo-->
-        <h3 class="text-center mt-3">Lojas Cadastradas
+        <h3 class="text-center mt-3">Pedidos Registrados
           <button class="btn btn-outline-primary btn-color-success ml-3" (click)="novoPedido()">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -13,12 +13,12 @@
           </button>
         </h3>
         <hr>
-        <div>
+        <div class="container-fluid px-4">
           <div class="card-body" style="border-radius: 25px;">
             <div class="row justify-content-center">
               <div class="col-lg-8 col-xl-7">
                 <div *ngIf="pedidos?.length == 0" class="alert alert-danger" role="alert">
-                    Não existem clientes cadastrados!
+                    Não existem pedidos registrados!
                 </div>
               </div>
             </div>
@@ -37,8 +37,8 @@
                 <tr *ngFor="let pedido of pedidos">
                   <td>{{ pedido.id }}</td>
                   <td *ngIf="pedido && pedido.cliente_Id">{{ pedido.cliente_Id }}</td>
-                  <td>{{ pedido.valor_Total }}</td>
-                  <td>{{ pedido.data }}</td>
+                  <td>{{ pedido.valor_Total?.toString() | currency: "R$" }}</td>
+                  <td>{{ pedido.data?.toString() | date : "dd/MM/yyyy"}}</td>
                   <td class="text-center">
                     <a class="btn btn-outline-info btn-color-success" (click)="editarPedido(pedido.id)">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
