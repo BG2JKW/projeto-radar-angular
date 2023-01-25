@@ -7,6 +7,17 @@
           border-radius: 10px;
 }
 
+.disable-btn {
+  border-color: #ccc;
+  margin: 0;
+  font-weight: 700;
+  border-color: #ccc;
+}
+
+.close-x:hover {
+  color: #f00;
+}
+
 .btn {
   transition: 400ms;
 }
