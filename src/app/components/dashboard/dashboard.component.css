@@ -1,0 +1,8 @@
+.table-round-corner {
+  text-align: center;
+  overflow:hidden;
+  border: solid #ccc 1px;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+}
