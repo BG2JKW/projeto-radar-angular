@@ -19,6 +19,17 @@
   border-color: #008B8B;
 }
 
+.btn-cancel {
+  font-weight: 700;
+  border-color: #4F5760;
+  color: #4F5760;
+}
+
+.btn-cancel:hover {
+  border-color: #8D97A2;
+  background-color: #8D97A2;
+}
+
 .btn-color-success:hover {
   color: #fff;
   background-color: #19b4b8;

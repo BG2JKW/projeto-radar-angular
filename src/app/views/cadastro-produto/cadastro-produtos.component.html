@@ -1,5 +1,5 @@
 <div id="layoutSidenav">
-  
+
   <div id="layoutSidenav_content">
     <main>
       <div class="container-fluid px-4">
@@ -14,31 +14,21 @@
                   </h3>
                 </div>
                 <div class="card-body">
+
                   <form *ngIf="produto">
                     <div class="row mb-3">
-                      <div class="col-md-6">
-                        <div class="form-floating mb-3 mb-md-0">
-                          <input
-                            class="form-control"
-                            type="text"
-                            id="nome"
-                            name="nome"
-                            [(ngModel)]="produto.nome"
-                          />
-                          <label for="nome">Nome</label>
-                        </div>
+                      <div class="col form-floating mb-3 mb-md-0">
+                        <input class="form-control" type="text" id="nome" name="nome" [(ngModel)]="produto.nome"/>
+                        <label for="nome">Nome</label>
                       </div>
-                      <div class="col-md-6">
-                        <div class="form-floating">
-                          <input
-                            class="form-control"
-                            type="text"
-                            id="valor"
-                            name="valor"
-                            [(ngModel)]="produto.valor"
-                          />
-                          <label for="valor">Valor</label>
-                        </div>
+                      <div class="col col-lg-2 form-floating mr-3 ml-3">
+                        <input class="form-control" type="text" id="valor" name="valor" [(ngModel)]="produto.valor"/>
+                        <label for="valor">Valor</label>
+                      </div>
+
+                      <div class="col col-lg-2 form-floating">
+                        <input class="form-control" type="text" id="qtd_Estoqu" name="qtd_Estoque" [(ngModel)]="produto.qtd_Estoque"/>
+                        <label for="descricao">Qtd Estoque</label>
                       </div>
                     </div>
 
@@ -53,17 +43,7 @@
                       <label for="descricao">Descrição</label>
                     </div>
 
-                    <div class="form-floating">
-                      <input
-                        class="form-control"
-                        type="text"
-                        id="qtd_Estoqu"
-                        name="qtd_Estoque"
-                        [(ngModel)]="produto.qtd_Estoque"
-                      />
-                      <label for="descricao">Qtd Estoque</label>
-                    </div>
-                    <div class="mt-4 mb-0">
+                    <!-- <div class="mt-4 mb-0">
                       <div class="d-grid">
                         <button class="btn btn-primary btn-block" type="button" (click)="salvar()">
                           Salvar
@@ -72,7 +52,26 @@
                           Cancelar
                         </button>
                       </div>
-                    </div>
+                    </div> -->
+
+                    <div class="mt-4 row">
+                      <button class="col btn btn-outline-primary btn-block btn-color-success" type="button"
+                          (click)="salvar()">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M3.5 10a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 0 0 1h2A1.5 1.5 0 0 0 14 9.5v-8A1.5 1.5 0 0 0 12.5 0h-9A1.5 1.5 0 0 0 2 1.5v8A1.5 1.5 0 0 0 3.5 11h2a.5.5 0 0 0 0-1h-2z"/>
+                            <path fill-rule="evenodd" d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
+                          </svg>
+                          Salvar
+                      </button>
+                      <button class="col btn btn-outline-warning btn-block btn-cancel" type="button"
+                          (click)="cancelar()">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                          </svg>
+                          Cancelar
+                      </button>
+                  </div>
+
                   </form>
                 </div>
               </div>
