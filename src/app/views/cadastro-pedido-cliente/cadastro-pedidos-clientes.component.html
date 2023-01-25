@@ -1,83 +1,81 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
   <div class="card-header py-3">
-    <h4 class="m-0 font-weight-bold orange mt-2 pt-1 pb-1">{{titulo}}</h4>
+    <h4 class="text-center m-0 font-weight-bold mt-2 pt-1 pb-1">{{titulo}}</h4>
   </div>
 
   <form class="ngForm" *ngIf="pedido && cliente" >
 
-  <div class="card-body d-flex justify-content-start">
+    <div class="card-body d-flex justify-content-start">
 
-    <div class="pr-2" *ngIf="pedido && pedido.id">
-      <label> Id Pedido </label>
-      <input disabled [placeholder]="pedido.id" type="text" class="form-control" id="nomeprod" />
-    </div>
+      <div class="pr-2" *ngIf="pedido && pedido.id">
+        <label> Id Pedido </label>
+        <input disabled [placeholder]="pedido.id" type="text" class="form-control" id="nomeprod" />
+      </div>
 
-    <div class="pr-2" >
-      <label>CPF</label>
-      <input
-        name="cpf"
-        type="string"
-        class="form-control"
-        id="cpf"
-        [disabled]="CPFCadastrado"
-        placeholder="CPF"
-        (change)="searchcpf($event)"
-        [(ngModel)]="cliente.cpf"
-        maxlength="20"
-      />
-    </div>
+      <div class="pr-2" >
+        <label>CPF</label>
+        <input
+          name="cpf"
+          type="string"
+          class="form-control"
+          id="cpf"
+          [disabled]="CPFCadastrado"
+          placeholder="CPF"
+          (change)="searchcpf($event)"
+          [(ngModel)]="cliente.cpf"
+          maxlength="20"
+        />
+      </div>
 
+      <div *ngIf="cliente" class="pr-2">
+        <label>NOME</label>
+        <input
+          name="nomeCliente"
+          type="string"
+          class="form-control"
+          id="cpf"
+          disabled
+          [(ngModel)]="cliente.nome"
+        />
+      </div>
 
-    <div *ngIf="cliente" class="pr-2">
-      <label>NOME</label>
-      <input
-        name="nomeCliente"
-        type="string"
-        class="form-control"
-        id="cpf"
-        disabled
-        [(ngModel)]="cliente.nome"
-      />
-    </div>
+      <div *ngIf="cliente" class="pr-2">
+        <label>E-MAIL</label>
+        <input
+          name="emailCliente"
+          type="string"
+          class="form-control"
+          id="email"
+          disabled
+          [(ngModel)]="cliente.email"
+        />
+      </div>
 
-    <div *ngIf="cliente" class="pr-2">
-      <label>E-MAIL</label>
-      <input
-        name="emailCliente"
-        type="string"
-        class="form-control"
-        id="email"
-        disabled
-        [(ngModel)]="cliente.email"
-      />
-    </div>
+      <div *ngIf="cliente" class="pr-2">
+        <label>CONTATO</label>
+        <input
+          name="telefoneCliente"
+          type="string"
+          class="form-control"
+          id="tel"
+          disabled
+          [(ngModel)]="cliente.telefone"
+        />
+      </div>
 
-    <div *ngIf="cliente" class="pr-2">
-      <label>CONTATO</label>
-      <input
-        name="telefoneCliente"
-        type="string"
-        class="form-control"
-        id="tel"
-        disabled
-        [(ngModel)]="cliente.telefone"
-      />
-    </div>
-
-    <div>
-      <label>DATA</label>
-      <label class="form-control" *ngIf="pedido.data">
-        {{ pedido.data.toString() | date: "dd/MM/yyyy" }}
-      </label>
-      <ng-template  [ngIf]="!pedido.data">
-        <label class="form-control text-secondary">
-          {{ pedidoForm.data | date : "dd/MM/yyyy" }}
+      <div>
+        <label>DATA</label>
+        <label class="form-control" *ngIf="pedido.data">
+          {{ pedido.data.toString() | date: "dd/MM/yyyy" }}
         </label>
-      </ng-template>
+        <ng-template  [ngIf]="!pedido.data">
+          <label class="form-control text-secondary">
+            {{ pedidoForm.data | date : "dd/MM/yyyy" }}
+          </label>
+        </ng-template>
+      </div>
     </div>
-
-  </div>
 </form>
 
 
