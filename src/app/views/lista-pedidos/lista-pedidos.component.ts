@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Pedido } from 'src/app/models/modeloPedidos';
 import { PedidoCPF } from 'src/app/models/modelViewDash/modeloPedidoComCpf';
 import { PedidoServico } from 'src/app/services/servicesPedidos/pedidoServico';
 
