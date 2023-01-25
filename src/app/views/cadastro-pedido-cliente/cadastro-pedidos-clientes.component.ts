@@ -147,10 +147,6 @@ export class CadastroPedidosClientesComponent implements OnInit {
     this.pedidoProduto = await this.pedidoProdutoServico.buscarPedidosProdutosPorId(id)
     if(this.cliente && this.cliente.cpf) {this.CPFCadastrado = true; this.CPFValido = true}
     else {this.CPFCadastrado  = false }
-
-    console.log("teste" + this.pedidoProduto)
-    console.log("PRODUTOS: "+ (this.produtos))
-
   }
 
   adicionarPedidoProduto(){
@@ -228,7 +224,7 @@ export class CadastroPedidosClientesComponent implements OnInit {
             pedido_Id: this.pedidoBd.id,
             produto_Id: this.ListaProdFake[i].idProd,
             quantidade: this.ListaProdFake[i].qtd,
-            valor: this.ListaProdFake[i].valTotal
+            valor: this.ListaProdFake[i].valTotal,
         });
           for(let i=0;i<this.ListaProdFake.length;i++){
               await this.produtoServico.editarProduto({

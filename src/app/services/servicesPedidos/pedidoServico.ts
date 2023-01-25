@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { firstValueFrom } from "rxjs/internal/firstValueFrom";
 import { Pedido } from "src/app/models/modeloPedidos";
+import { PedidoCPF } from "src/app/models/modelViewDash/modeloPedidoComCpf";
 import { environment } from "src/environments/environment";
 import { GetToken } from "../token/getToken";
 
@@ -26,6 +27,11 @@ export class PedidoServico{
 
     public async buscarPedidoPorId(id:Number): Promise<Pedido | undefined> {
         return await firstValueFrom(this.http.get<Pedido | undefined>(`${environment.API}/pedidos/${id}`, {headers:GetToken.token()}))
+    }
+
+    public async listarPedidosComCpf(): Promise<PedidoCPF[] | undefined> {
+        let pedidos:PedidoCPF[] | undefined = await firstValueFrom(this.http.get<PedidoCPF[]>(`${environment.API}/cpf/pedidos`, {headers:GetToken.token()}))
+        return pedidos;
     }
 
     public excluirpedidoPorId(id:Number) {

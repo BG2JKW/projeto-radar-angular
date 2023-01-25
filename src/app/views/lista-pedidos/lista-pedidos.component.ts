@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Pedido } from 'src/app/models/modeloPedidos';
+import { PedidoCPF } from 'src/app/models/modelViewDash/modeloPedidoComCpf';
 import { PedidoServico } from 'src/app/services/servicesPedidos/pedidoServico';
 
 @Component({
@@ -16,7 +16,7 @@ export class ListaPedidosComponent implements OnInit {
     private router:Router,
   ) { }
 
-  public pedidos:Pedido[] | undefined = []
+  public pedidos:PedidoCPF[] | undefined = []
   private pedidoServico:PedidoServico = {} as PedidoServico 
 
   ngOnInit(): void {
@@ -25,7 +25,7 @@ export class ListaPedidosComponent implements OnInit {
   }
 
   private async listaPedidos(){ //METODO QUE LISTA OS PRODUTOS PEGANDO DA API JUNTO COM O 'PRODUTO SERVICO'
-    this.pedidos = await this.pedidoServico.listarPedidos();
+    this.pedidos = await this.pedidoServico.listarPedidosComCpf();
   
     }
 

@@ -1,9 +1,7 @@
-
-export interface Pedido{
+export interface PedidoCPF{
     id:Number 
-    cliente_Id: Number | undefined
+    cpf: String | undefined
     valor_Total: Number | undefined
     data: String | undefined
     
 }
-
