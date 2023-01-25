@@ -15,7 +15,7 @@
       <div class="row container-fluid px-4 shadow table-round-corner pt-4 pb-4">
         <div class="col">
           <label>CPF</label>
-          <input name="cpf" type="string" class="form-control"
+          <input name="cpf" mask="000.000.000-00" type="string" class="form-control"
             id="cpf" [disabled]="CPFCadastrado" placeholder="CPF"
             (change)="searchcpf($event)" [(ngModel)]="cliente.cpf"
             maxlength="20"/>
@@ -125,57 +125,7 @@
 <!--############################################################################-->
 
 <form *ngIf="pedidoProduto && produtos && atualiza">
-  <!-- <div class="container-fluid px-4"> -->
-    <!-- <div class="card-body">
-      <table class="table shadow-lg table-round-corner">
-        <thead>
-          <tr>
-            <th>EAN</th>
-            <th>Produto</th>
-            <th>Descrição</th>
-            <th>Quantidade</th>
-            <th>Valor</th>
-          </tr>
-        </thead>
-        <tbody *ngIf="CPFCadastrado; else blocosenao">
-          <tr *ngFor="let pedidosProdutos of pedidoProduto">
-            <td>{{pedidosProdutos.produto_Id}}</td>
-            <td>{{retornaNomeProduto(pedidosProdutos.produto_Id)}}</td>
-            <td>{{retornaDescProduto(pedidosProdutos.produto_Id)}}</td>
-            <td>{{pedidosProdutos.quantidade}}</td>
-            <td>{{pedidosProdutos.valor | currency:'BRL':'symbol':'1.2-2'}}</td>
-            <td>
-              <a class="btn btn-outline-info btn-color-success">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
-                  <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
-                </svg>
-              </a>
-              <a class="btn btn-outline-info btn-color-success">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-                  <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-                  <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                </svg>
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <ng-template #blocosenao>
-        <tr *ngFor="let pedidoFake of ListaProdFake">
-          <td>{{pedidoFake.idProd}}</td>
-          <td>{{pedidoFake.nomeProd}}</td>
-          <td>{{pedidoFake.desc}}</td>
-          <td>{{pedidoFake.qtd}}</td>
-          <td>{{pedidoFake.valTotal | currency:'BRL':'symbol':'1.2-2'}}</td>
-          <td class="text-center">
-            <button (click)="excluirPedidoProduto(pedidoFake)" class="btn p-0">
-            <i class="fas fa-trash text-gray-600" role="button"></i>
-            </button>
-          </td>
-        </tr>
-      </ng-template>
-    </div> -->
-
+ 
     <div class="card-body">
       <table class="table shadow-lg table-round-corner">
         <thead>
