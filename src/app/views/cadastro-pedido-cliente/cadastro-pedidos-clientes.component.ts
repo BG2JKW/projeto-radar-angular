@@ -37,7 +37,7 @@ export class CadastroPedidosClientesComponent implements OnInit {
 
   public titulo:String = "Novo Pedido"
 
-  public pedidoIdBd:number | any = 0
+  public pedidoBd:Pedido | any = []
   
   public ListaProdFake: any  = [] 
   public pedidoProdutoFake:[] | undefined = []
@@ -70,7 +70,7 @@ export class CadastroPedidosClientesComponent implements OnInit {
       this.editaPedido(id)
     }else{
       this.pedidoForm.data = formatDate(new Date(), 'YYYY-MM-dd','pt-Br');;
-      console.log(this.pedidoForm.data)
+      console.log("form data?:" + this.pedidoForm.data)
       this.buscaTamanhoListaPedido()
     }
   }
@@ -128,7 +128,7 @@ export class CadastroPedidosClientesComponent implements OnInit {
   private async buscarProd(id:Number){
     try{
       this.produto = await this.produtoServico.buscarProdutoPorId(id);
-      console.log(this.produto);
+      console.log("PRODUTO" + this.produto);
       this.EANValido = true
     }catch(err){
       let resetLista:any = []
@@ -148,8 +148,8 @@ export class CadastroPedidosClientesComponent implements OnInit {
     if(this.cliente && this.cliente.cpf) {this.CPFCadastrado = true; this.CPFValido = true}
     else {this.CPFCadastrado  = false }
 
-    console.log(this.pedidoProduto)
-    console.log(this.produtos)
+    console.log("teste" + this.pedidoProduto)
+    console.log("PRODUTOS: "+ (this.produtos))
 
   }
 
@@ -215,20 +215,17 @@ export class CadastroPedidosClientesComponent implements OnInit {
     else{
       if(confirm("Finalizar Pedido?")){
 
-        await this.pedidoServico.criarPedido({
+        this.pedidoBd = await this.pedidoServico.criarPedido({
         id: 0, 
         cliente_Id: this.cliente?.id,
         valor_Total: this.valorPedidoTotal,
         data: this.pedidoForm.data,
       });
 
-      await this.retonarIdPedido();
-      console.log("===================[ " + this.pedidoIdBd + "]===================");
-
       for(let i=0;i<this.ListaProdFake.length;i++){
         await this.pedidoProdutoServico.criarPedidoProduto({
             id: 0,
-            pedido_Id: this.pedidoIdBd,
+            pedido_Id: this.pedidoBd.id,
             produto_Id: this.ListaProdFake[i].idProd,
             quantidade: this.ListaProdFake[i].qtd,
             valor: this.ListaProdFake[i].valTotal
@@ -253,16 +250,7 @@ export class CadastroPedidosClientesComponent implements OnInit {
     this.router.navigateByUrl('/lista-pedidos');
   }
 
-  async retonarIdPedido(){
-    var pedidos = await this.pedidoServico.listarPedidos();
-    if(pedidos){
-      for(let i =0;i<pedidos.length;i++){
-        if(i == pedidos.length){
-          this.pedidoIdBd = Number(pedidos[i].id);
-        }
-      }
-    }
-  }
+
 
 
 }
