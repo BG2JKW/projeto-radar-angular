@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'google-maps-demo',
   templateUrl: './google-maps-demo.component.html',
+  styleUrls: ['./google-maps-demo.component.css']
 })
 export class GoogleMapsDemoComponent {
   apiLoaded: Observable<boolean>;
@@ -63,6 +64,9 @@ export class GoogleMapsDemoComponent {
     });
     }
   }
-  
+
+  public voltar():void{
+    this.router.navigateByUrl('/lista-lojas');
+  }
 
 }

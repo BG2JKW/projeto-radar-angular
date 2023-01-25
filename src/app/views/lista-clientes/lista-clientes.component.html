@@ -1,6 +1,6 @@
-<div class="card h-100 w-100" style="width: 95%; height: 95%; margin: 0 auto;">
+<div class="h-100 w-100" style="width: 95%; height: 95%; margin: 0 auto;">
   <div class="card-header pt-3">
-    <h3>Clientes Cadastrados<button class="btn btn-primary ml-3" (click)="novoCliente()">
+    <h3 class="text-center mt-3">Clientes Cadastrados<button class="btn btn-outline-success btn-color-success ml-3" (click)="novoCliente()">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-add" viewBox="0 0 16 16">
         <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
         <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
@@ -13,7 +13,7 @@
       <div class="container-fluid px-4">
         <!--Conteudo-->
         <div >
-          <div class="card-body">
+          <div class="card-body" style="border-radius: 25px;">
             <div class="row justify-content-center">
               <div class="col-lg-8 col-xl-7">
                 <div *ngIf="clientes?.length == 0" class="alert alert-danger" role="alert">
@@ -21,9 +21,8 @@
                 </div>
               </div>
             </div>
-
             <table *ngIf="clientes && clientes.length > 0"
-              class="table table-bordered"
+              class="table shadow-lg table-round-corner"
             >
               <thead>
                 <tr>
@@ -32,13 +31,6 @@
                   <th scope="col">Telefone</th>
                   <th scope="col">Email</th>
                   <th scope="col">CPF</th>
-                  <!--<th scope="col">Cep</th>
-                <th scope="col">Logradouro</th>
-                <th scope="col">Número</th>
-                <th scope="col">Complemento</th>
-                <th scope="col">Bairro</th>
-                <th scope="col">Cidade</th>
-                <th scope="col">Estado</th>-->
                   <th scope="col" colspan="3" style="text-align: center">Ações</th>
                 </tr>
               </thead>
@@ -49,23 +41,21 @@
                   <td>{{ cliente.telefone }}</td>
                   <td>{{ cliente.email }}</td>
                   <td>{{ cliente.cpf }}</td>
-                  <!--<<td>{{ cliente.cep }}</td>
-                <td>{{ cliente.logradouro }}</td>
-                <td>{{ cliente.numero }}</td>
-                <td>{{ cliente.complemento }}</td>
-                <td>{{ cliente.bairro }}</td>
-                <td>{{ cliente.cidade }}</td>
-                <td>{{ cliente.estado }}</td>-->
                   <td style="text-align: center">
-                    <a
-                      class="btn btn-info"
-                      (click)="editarCliente(cliente.id)"
-                      >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    <a class="btn btn-outline-info btn-color-success" (click)="editarCliente(cliente.id)">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                        <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
                       </svg>
-                      Detalhes
-                      </a>
+                    </a>
+                  </td>
+                  <td style="text-align: center">
+                    <button class="btn btn-danger" (click)="deletar(cliente.id)" >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x" viewBox="0 0 16 16">
+                        <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
+                        <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708Z"/>
+                      </svg>
+                      Excluir
+                    </button>
                   </td>
                 </tr>
               </tbody>

@@ -12,7 +12,7 @@ import { catchError, map, Observable, of } from 'rxjs';
 })
 export class ListaLojasComponent implements OnInit {
   apiLoaded: Observable<boolean>;
-  
+
   constructor(
     private http:HttpClient,
     private router:Router,
@@ -23,7 +23,7 @@ export class ListaLojasComponent implements OnInit {
           catchError(() => of(false)),
         );
   }
-  
+
   private LojaServico:LojaServico = {} as LojaServico
   public lojas:Loja[] | undefined = []
   public loja:Loja | undefined = {} as Loja
@@ -55,7 +55,7 @@ export class ListaLojasComponent implements OnInit {
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
     this.router.navigate([uri]));
   }
-  
+
   getLocation(id:Number) {
     this.router.navigateByUrl(`/lojas-maps/${id}`)
   }

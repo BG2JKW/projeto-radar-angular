@@ -1,12 +1,14 @@
-<div class="card h-100 w-100" style="width: 95%; height: 95%; margin: 0 auto;">
+<div class=" h-100 w-100" style="width: 95%; height: 95%; margin: 0 auto;">
   <div class="card-header pt-3">
-    <h3>Lojas Cadastradas<button class="btn btn-primary ml-3" (click)="novoLoja()">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+    <h3 class="text-center mt-3">Lojas Cadastradas</h3>
+  </div>
+  <div class="container-fluid px-4 mt-3">
+    <button class="btn btn-outline-success btn-color-success ml-3" style="width: 200px; height: 40px;" (click)="novoLoja()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shop" viewBox="0 0 16 16">
+        <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
       </svg>
-      Novo
-    </button></h3>
+      Cadastrar loja
+    </button>
   </div>
   <div>
     <main>
@@ -21,39 +23,35 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="row mb-3">
-              <table *ngIf="lojas && lojas.length > 0" class="table table-bordered col-md-6">
+              <table *ngIf="lojas && lojas.length > 0" class="table shadow-lg table-round-corner col-md-6">
                 <thead>
                   <tr>
-                    <th scope="col">ID</th>
+                    <!-- <th scope="col">#</th> -->
                     <th scope="col">Nome</th>
-                    <th scope="col">Observacao</th>
+                    <th scope="col">Observação</th>
                     <th scope="col">Endereço</th>
                     <th scope="col" colspan="3" style="text-align: center">Ações</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let loja of lojas">
-                    <th scope="row">{{ loja.id }}</th>
+                    <!-- <th scope="row">{{ loja.id }}</th> -->
                     <td>{{ loja.nome }}</td>
                     <td>{{ loja.observacao }}</td>
                     <td>{{ loja.logradouro }}, {{ loja.numero }} - {{ loja.bairro }}, {{ loja.cidade }} - {{ loja.estado }}, {{ loja.cep }}</td>
-                    <td style="text-align: center">
-                      <a class="btn btn-info" (click)="editarLoja(loja.id)">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    <td style="text-align: center; width: 200px;">
+                      <a class="btn btn-outline-info btn-color-success" (click)="editarLoja(loja.id)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                          <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
                         </svg>
-                        Detalhes
                       </a>
-                    </td>
-                    <td style="text-align: center">
-                      <a class="btn btn-info" (click)="getLocation(loja.id)">
+                      <a class="btn btn-outline-info btn-color-success" (click)="getLocation(loja.id)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
                           <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
                           <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                         </svg>
-                        Mapa
                       </a>
                     </td>
                   </tr>
