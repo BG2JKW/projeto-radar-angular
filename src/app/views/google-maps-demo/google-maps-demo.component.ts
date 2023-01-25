@@ -36,7 +36,7 @@ export class GoogleMapsDemoComponent {
     this.buscaLoja(id);
   }
 
-  private async buscaLoja(id:Number){ //METODO QUE LISTA OS PRODUTOS PEGANDO DA API JUNTO COM O 'PRODUTO SERVICO'
+  private async buscaLoja(id:Number){ 
     this.loja = await this.lojaServico.buscarLojaPorId(id);
     await this.marcarLoja(id);
   }

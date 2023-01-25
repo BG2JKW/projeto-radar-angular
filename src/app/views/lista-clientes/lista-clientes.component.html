@@ -18,7 +18,7 @@
       <div class="container-fluid px-4">
         <!--Conteudo-->
         <div >
-          <div class="card-body">
+          <div class="card-body" style="border-radius: 25px;">
             <div class="row justify-content-center">
               <div class="col-lg-8 col-xl-7">
                 <div *ngIf="clientes?.length == 0" class="alert alert-danger" role="alert">
@@ -26,7 +26,6 @@
                 </div>
               </div>
             </div>
-
             <table *ngIf="clientes && clientes.length > 0"
               class="table shadow-lg table-round-corner"
             >
@@ -54,6 +53,7 @@
                       </svg>
                     </a>
                   </td>
+                 
                 </tr>
               </tbody>
             </table>

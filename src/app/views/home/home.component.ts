@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private route: Router
   ) {
     this.apiLoaded = http.jsonp('https://maps.googleapis.com/maps/api/js?key=AIzaSyC_swsQQ2u2w3S5tunR9SjpwbsYMlIWUS8', 'callback')
         .pipe(
@@ -29,10 +28,7 @@ export class HomeComponent implements OnInit {
   public lojas:Loja[] | undefined = []
   private lojaServico:LojaServico = {} as LojaServico
 
-  private usuarioValido:TokenServico = {} as TokenServico
-
   ngOnInit(): void {
-    this.usuarioValido = new TokenServico(this.http);
     this.lojaServico = new LojaServico(this.http);
     this.listaLojas();
     console.log(this.markerPositions)

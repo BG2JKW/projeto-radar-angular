@@ -14,10 +14,8 @@ import { ListaProdutosComponent } from './views/lista-produtos/lista-produtos.co
 import { FooterComponent } from './components/footer/footer.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CadastroLojasComponent } from './views/cadastro-loja/cadastro-lojas.component';
-import { CadastroCampanhasComponent } from './views/cadastro-campanha/cadastro-campanhas.component';
 import { ListaPedidosComponent } from './views/lista-pedidos/lista-pedidos.component';
 import { ListaLojasComponent } from './views/lista-lojas/lista-lojas.component';
-import { ListaCampanhasComponent } from './views/lista-campanhas/lista-campanhas.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GoogleMapsDemoModule } from './views/google-maps-demo/google-maps-demo.module';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -44,9 +42,7 @@ registerLocaleData(ptBr)
     FooterComponent,
     DashboardComponent,
     CadastroLojasComponent,
-    CadastroCampanhasComponent,
     ListaLojasComponent,
-    ListaCampanhasComponent,
     ListaClientesComponent,
     ListaPedidosComponent,
     NotFoundComponent,

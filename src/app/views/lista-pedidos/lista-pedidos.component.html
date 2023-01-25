@@ -36,8 +36,8 @@
               <tbody>
                 <tr *ngFor="let pedido of pedidos">
                   <td>{{ pedido.id }}</td>
-                  <td *ngIf="pedido && pedido.cliente_Id">{{ pedido.cliente_Id }}</td>
-                  <td>{{ pedido.valor_Total?.toString() | currency: "R$" }}</td>
+                  <td *ngIf="pedido && pedido.cpf">{{ pedido.cpf }}</td>
+                  <td>{{ pedido.valor_total?.toString() | currency: "R$" }}</td>
                   <td>{{ pedido.data?.toString() | date : "dd/MM/yyyy"}}</td>
                   <td class="text-center">
                     <a class="btn btn-outline-info btn-color-success" (click)="editarPedido(pedido.id)">

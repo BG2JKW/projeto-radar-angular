@@ -72,9 +72,9 @@ export class DashboardComponent implements OnInit {
   // ====================================================================
 
 
-  // ==================== DADOS QTD DE PRODUTOS EM ESTOQUE ====================
+  // ==================== CONFIG QTD DE PRODUTOS EM ESTOQUE ====================
   public dadosQtdProdEstoqueDash: any[] = [];
-  tipoGraficoQtdProdutosEstoque: ChartType = ChartType.BarChart;
+  tipoGraficoQtdProdutosEstoque: ChartType = ChartType.Bar;
   public optionsGraficoProdutosEstoque = {
     pieSliceText: 'label',
     legend: { position: 'none' },
@@ -82,9 +82,9 @@ export class DashboardComponent implements OnInit {
   // ==========================================================================
 
 
-  // ==================== DADOS MOVIMENTACAO PRODUTO ====================
+  // ==================== CONFIG MOVIMENTACAO PRODUTO ====================
   public dataGraficoMovimentacaoProduto: any = [];
-  tipoGraficoMovimentacaoProdutos: ChartType = ChartType.BarChart;
+  tipoGraficoMovimentacaoProdutos: ChartType = ChartType.Bar;
   public optionsGraficoMovimentacaoProduto = {
     // heigth: 800,
     width: 850,
@@ -97,12 +97,13 @@ export class DashboardComponent implements OnInit {
   };
   // ==========================================================================
 
-  // ==================== DADOS GANHOS POR PRODUTO ====================
+  // ==================== CONFIG GANHOS POR PRODUTO ====================
   public dadosGanhoPorProduto: any = [];
   tipoGraficoGanhosPorProduto: ChartType = ChartType.PieChart;
   public optionsGraficoGanhoPorProduto = {
     pieSliceText: 'none',
     pieHole: 0.4,
+
   };
 
   // ==========================================================================
