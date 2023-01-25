@@ -14,9 +14,7 @@
                       <img src="https://radar.farmarcas.com.br/authentication/adaa9473ff7a59a99465.svg" class="img-fluid">
                   </div>
                 </div>
-
                 <form id="contactForm" class="col d-flex align-items-center justify-content-center">
-
                   <div class="row ">
                     <div class="form-floating mb-3 justify-content-center">
                       <input class="form-control" id="nome" name="nome" type="text" [(ngModel)]="email"
@@ -24,18 +22,15 @@
                       <label for="nome">Email</label>
                       <p class="mb-1 text-danger" *ngIf="mensagem">Email ou senha inválidos.</p>
                     </div>
-
                     <div class="form-floating mb-3">
                       <input class="form-control" id="endereco" name="endereco" type="password" [(ngModel)]="senha"
                         placeholder="Digite sua senha" [ngClass]="mensagem ? 'is-invalid' : ''">
                       <label for="email">Senha</label>
                       <p class="mb-1 text-danger" *ngIf="mensagem">Email ou senha inválidos.</p>
                     </div>
-
-                    <button class="btn btn-outline-success btn-color-success" id="submitButton" type="button" (click)="logar()">Entrar</button>
+      <button class="btn btn-outline-success btn-color-success" id="submitButton" type="button" (click)="logar()">Entrar</button>
                   </div>
                 </form>
-
               </div>
             </div>
           </div>

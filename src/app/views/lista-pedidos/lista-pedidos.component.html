@@ -1,56 +1,58 @@
-<!-- DataTales Example -->
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-      <h4 class="m-0 font-weight-bold orange mt-2 pt-1 pb-1">Pedidos</h4>
-    </div>
-    <div class="card-body d-flex pb-1 justify-content-between">
-      <button (click)="novoPedido()" class="btn btn btn-info btn-icon-split">
-        <span class="icon text-white-50">
-          <i class="fas fa-plus"></i>
-        </span>
-        <span class="text">Novo pedido</span>
-      </button>
-    </div>
-    <div class="card-body">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-xl-7">
-              <div class="alert alert-danger" role="alert">
-                  Não existem pedidos cadastrados!
+<div id="layoutSidenav" class="h-100 w-100" style="width: 95%; height: 95%; margin: 0 auto;">
+  <div id="layoutSidenav_content" class="pt-3">
+    <main>
+      <div class="">
+        <!--Conteudo-->
+        <h3 class="text-center mt-3">Pedidos Registrados
+          <button class="btn btn-outline-primary btn-color-success ml-3" (click)="novoPedido()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+            </svg>
+            Novo
+          </button>
+        </h3>
+        <hr>
+        <div class="container-fluid px-4">
+          <div class="card-body" style="border-radius: 25px;">
+            <div class="row justify-content-center">
+              <div class="col-lg-8 col-xl-7">
+                <div *ngIf="pedidos?.length == 0" class="alert alert-danger" role="alert">
+                    Não existem pedidos registrados!
+                </div>
               </div>
             </div>
+
+            <table *ngIf="pedidos && pedidos.length > 0" class="table shadow-lg table-round-corner" style="background-color: #fff;">
+              <thead>
+                <tr>
+                  <th scope="col">Pedido</th>
+                  <th scope="col">CPF Cliente</th>
+                  <th scope="col">Valor Total</th>
+                  <th scope="col">Data</th>
+                  <th scope="col">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let pedido of pedidos">
+                  <td>{{ pedido.id }}</td>
+                  <td *ngIf="pedido && pedido.cliente_Id">{{ pedido.cliente_Id }}</td>
+                  <td>{{ pedido.valor_Total?.toString() | currency: "R$" }}</td>
+                  <td>{{ pedido.data?.toString() | date : "dd/MM/yyyy"}}</td>
+                  <td class="text-center">
+                    <a class="btn btn-outline-info btn-color-success" (click)="editarPedido(pedido.id)">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                        <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+                      </svg>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-      <div class="table-responsive">
-        <table
-          class="table table-bordered"
-          id="dataTable"
-          width="100%"
-          cellspacing="0"
-        >
-          <thead>
-            <tr class="orange">
-              <th>Pedido</th>
-              <th>CPF Cliente</th>
-              <th>Valor Total</th>
-              <th>Data</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let pedido of pedidos">
-              <td>{{ pedido.id }}</td>
-              <td *ngIf="pedido && pedido.cliente_Id">
-                {{ pedido.cliente_Id }}
-              </td>
-              <td>{{ pedido.valor_Total }}</td>
-              <td>{{ pedido.data }}</td>
-              <td class="text-center">
-                <button (click)="editarPedido(pedido.id)" class="btn p-0">
-                  <i class="fas fa-eye text-gray-600" role="button"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        </div>
       </div>
-    </div>
+    </main>
   </div>
+</div>
+<hr>

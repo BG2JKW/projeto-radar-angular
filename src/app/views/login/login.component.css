@@ -1,3 +1,8 @@
+.btn {
+  margin: 4px;
+  transition: 400ms;
+}
+
 .btn-color-success {
   font-weight: 700;
   color: #fff;
@@ -6,8 +11,14 @@
 }
 
 .btn-color-success:hover {
-  /* color: var(--btn-color-sucess); */
-  color: #fff;
   background-color: #19b4b8;
   border-color: #008B8B;
+}
+
+.btn-outline-warning, .btn-outline-info {
+  font-weight: bold;
+}
+
+.btn-outline-warning:hover, .btn-outline-info:hover {
+  color: #fff;
 }

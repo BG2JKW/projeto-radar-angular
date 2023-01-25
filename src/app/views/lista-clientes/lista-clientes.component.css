@@ -9,20 +9,26 @@
 }
 
 .btn {
-  margin: 4px
+  margin: 4px;
+  transition: 400ms;
 }
 
 .btn-color-success {
   font-weight: 700;
   color: #008B8B;
-  /* background-color: #008B8B; */
   border-color: #008B8B;
 }
 
 .btn-color-success:hover {
-  /* color: var(--btn-color-sucess); */
   color: #fff;
   background-color: #19b4b8;
   border-color: #008B8B;
-  transition: 500ms;
+}
+
+.btn-outline-warning, .btn-outline-info {
+  font-weight: bold;
+}
+
+.btn-outline-warning:hover, .btn-outline-info:hover {
+  color: #fff;
 }
