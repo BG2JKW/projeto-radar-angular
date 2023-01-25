@@ -88,12 +88,12 @@ export class DashboardComponent implements OnInit {
   public optionsGraficoMovimentacaoProduto = {
     // heigth: 800,
     width: 850,
-    // legend: { position: 'none' },
     bar: { groupWidth: '80%' },
-    // width: 600,
-    height: 400,
     legend: { position: 'none' },
-    isStacked: true
+    isStacked: true,
+    // hAxis: {textPosition: 'none'},
+    hAxis: {textPosition: 'none'},
+    vAxis: {textPosition: 'none'},
   };
   // ==========================================================================
 
@@ -103,7 +103,6 @@ export class DashboardComponent implements OnInit {
   public optionsGraficoGanhoPorProduto = {
     pieSliceText: 'none',
     pieHole: 0.4,
-
   };
 
   // ==========================================================================

@@ -14,7 +14,7 @@
       <div class="row container-fluid px-4 shadow table-round-corner pt-4 pb-4">
         <div class="col">
           <label>CPF</label>
-          <input name="cpf" type="string" class="form-control"
+          <input name="cpf" mask="000.000.000-00" type="string" class="form-control"
             id="cpf" [disabled]="CPFCadastrado" placeholder="CPF"
             (change)="searchcpf($event)" [(ngModel)]="cliente.cpf"
             maxlength="20"/>
@@ -124,7 +124,6 @@
 <!--############################################################################-->
 
 <form *ngIf="pedidoProduto && produtos && atualiza">
-
     <div class="card-body">
       <table class="table shadow-lg table-round-corner">
         <thead>
