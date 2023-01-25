@@ -1,108 +1,96 @@
-<div class="h-100 w-100" style="width: 95%; height: 95%; margin: 0 auto;">
+<div>
   <div class="card-header pt-4">
     <h3 class="text-center mt-3">Relatórios</h3>
   </div>
   <!-- Div Dashboard -->
-  <br>
-  <div class="row d-flex w-100 p-2">
+  <div class="row mt-4">
 
-    <div class="">
-
-      <div class="d-flex align-items-stretch ">
-
-        <!-- ============================= CARDS DA ESQUEDA *INICIO* =============================-->
-
-        <div class="d-flex flex-column w-100">
-        <div class="card border-left-primary h-50 py-2">
-          <div class="card-body ">
-            <div class="row no-gutters align-items-center">
-              <div class="col mr-2">
-                <div
-                  class=" text-xs font-weight-bold text-primary text-uppercase mb-1"
-                >
-                  Total Clientes
-                </div>
-                <div class="display-4 h5 mb-0 font-weight-bold text-gray-800">
-                  {{ qtdTotalClientes }}
-                </div>
-              </div>
-              <div class="col-auto">
-                <i class="fas fa-user fa-2x text-gray-300"></i>
-              </div>
+    <div class="card border-left-primary py-2 col-2 ml-4 mr-4">
+      <div class="card-body ">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class=" text-xs font-weight-bold text-primary text-uppercase">
+              Total Clientes
+            </div>
+            <div class="display-4 h5 mb-0 font-weight-bold text-gray-800">
+              {{ qtdTotalClientes }}
             </div>
           </div>
-        </div>
-      <br>
-      <div class="card border-left-info h-50 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div
-                class="text-xs font-weight-bold text-info text-uppercase mb-1"
-              >
-                Total Produtos
-              </div>
-              <div class="row no-gutters align-items-center">
-                <div class="col-auto">
-                  <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                    {{ qtdtotalProdutos }}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-suitcase fa-2x text-gray-300"></i>
-            </div>
+          <div class="col-auto">
+            <i class="fas fa-user fa-2x text-gray-300"></i>
           </div>
         </div>
       </div>
-      <br>
-      <div class="card border-left-success h-50 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div
-                class="text-xs font-weight-bold text-success text-uppercase mb-1"
-              >
-                Ganho Total
-              </div>
-              <div class=" display-4 h5 mb-0 font-weight-bold text-gray-800">
-                {{ valTotal | currency : "BRL" : "symbol" : "1.2-2" }}
-              </div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
-      <div class="card border-left-warning h-50 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div
-                class="text-xs font-weight-bold text-warning text-uppercase mb-1"
-              >
-                TOTAL PEDIDOS
-              </div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800">
-                {{ qtdTotalPedidos }}
-              </div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-truck fa-2x text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
 
+    <div class="card border-left-info py-2 col-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-info text-uppercase ">
+              Total Produtos
+            </div>
+            <div class="row no-gutters align-items-center">
+              <div class="col-auto">
+                <div class="display-4 h5 mb-0 font-weight-bold text-gray-800">
+                  {{ qtdtotalProdutos }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-suitcase fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!-- ============================= CARDS DA ESQUEDA *FIM* =============================-->
+    <div class="card border-left-warning py-2 col-2 ml-4">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+              TOTAL PEDIDOS
+            </div>
+            <div class="display-4 h5 mb-0 font-weight-bold text-gray-800">
+              {{ qtdTotalPedidos }}
+            </div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-truck fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <div class="order-2 col-6 ">
+    <div class="card border-left-success py-2 col mr-4 ml-4">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+              Ganho Total
+            </div>
+            <div class=" display-4 h5 mb-0 font-weight-bold text-gray-800">
+              {{ valTotal | currency : "BRL" : "symbol" : "1.2-2" }}
+            </div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <div class="">
+      <div class="d-flex align-items-stretch ">
+        <!-- ============================= CARDS DA ESQUEDA *INICIO* =============================-->
+
+
+
+        <!-- ============================= CARDS DA ESQUEDA *FIM* =============================-->
+      <div class="">
 
         <div class="col-xl col-lg w-100%">
           <div class="card mb-4">
@@ -157,11 +145,9 @@
             </div>
           </div>
         </div>
-
       </div>
 
       <div class="order-3 col-4 p-0">
-
         <div class="col-xl col-lg w-100% p-0">
           <div class="card mb-4">
             <!-- Card Header - Dropdown -->
@@ -207,9 +193,7 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
-
   </div>
 </div>
