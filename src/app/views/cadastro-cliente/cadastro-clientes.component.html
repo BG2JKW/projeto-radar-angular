@@ -144,31 +144,31 @@
                     </div>
 
                     <div class="row mb-3 d-flex justify-content-center" >
-                        <div class="col">
-                            <div class="form-floating mb-3 mb-md-0">
-                                <input class="form-control" type="text" id="logradouro"
-                                    name="logradouro" [(ngModel)]="cliente.logradouro"
-                                    [disabled]="true"
-                                    [ngClass]="cepValido === false ? 'alert-danger' : ''" />
-                                <label for="logradouro">Logradouro</label>
-                            </div>
-                        </div>
-
-                        <div class="col col-lg-2 ml-3 mr-3">
+                      <div class="col">
                           <div class="form-floating mb-3 mb-md-0">
-                              <input class="form-control" type="text" id="numero" name="numero"
-                                  [(ngModel)]="cliente.numero" />
-                              <label for="numero">Número</label>
-                          </div>
-                        </div>
-
-                        <div class="col-md-3">
-                          <div class="form-floating mb-3 mb-md-0">
-                              <input class="form-control" type="text" id="bairro" name="bairro"
-                                  [(ngModel)]="cliente.bairro" [disabled]="true"
+                              <input class="form-control" type="text" id="logradouro"
+                                  name="logradouro" [(ngModel)]="cliente.logradouro"
+                                  [disabled]="true"
                                   [ngClass]="cepValido === false ? 'alert-danger' : ''" />
-                              <label for="bairro">Bairro</label>
+                              <label for="logradouro">Logradouro</label>
                           </div>
+                      </div>
+
+                      <div class="col col-lg-2 ml-3 mr-3">
+                        <div class="form-floating mb-3 mb-md-0">
+                            <input class="form-control" type="text" id="numero" name="numero"
+                                [(ngModel)]="cliente.numero" />
+                            <label for="numero">Número</label>
+                        </div>
+                      </div>
+
+                      <div class="col-md-3">
+                        <div class="form-floating mb-3 mb-md-0">
+                          <input class="form-control" type="text" id="bairro" name="bairro"
+                              [(ngModel)]="cliente.bairro" [disabled]="true"
+                              [ngClass]="cepValido === false ? 'alert-danger' : ''" />
+                          <label for="bairro">Bairro</label>
+                        </div>
                       </div>
                     </div>
 
@@ -181,23 +181,23 @@
                             </div>
                         </div>
                     </div>
-                        <div class="mt-4 row">
-                            <button class="col btn btn-outline-sucess btn-block btn-color-success mr-2" type="button"
-                                (click)="salvar()">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-down" viewBox="0 0 16 16">
-                                  <path fill-rule="evenodd" d="M3.5 10a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 0 0 1h2A1.5 1.5 0 0 0 14 9.5v-8A1.5 1.5 0 0 0 12.5 0h-9A1.5 1.5 0 0 0 2 1.5v8A1.5 1.5 0 0 0 3.5 11h2a.5.5 0 0 0 0-1h-2z"/>
-                                  <path fill-rule="evenodd" d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                                </svg>
-                                Salvar
-                            </button>
-                            <button class="col btn btn-outline-secondary btn-block btn-cancel" type="button"
-                                (click)="cancelar()">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                                </svg>
-                                Cancelar
-                            </button>
-                        </div>
+                      <div class="mt-4 row">
+                        <button class="col btn btn-outline-sucess btn-block btn-color-success mr-3" type="button"
+                          (click)="salvar()">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M3.5 10a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 0 0 1h2A1.5 1.5 0 0 0 14 9.5v-8A1.5 1.5 0 0 0 12.5 0h-9A1.5 1.5 0 0 0 2 1.5v8A1.5 1.5 0 0 0 3.5 11h2a.5.5 0 0 0 0-1h-2z"/>
+                            <path fill-rule="evenodd" d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
+                          </svg>
+                          Salvar
+                        </button>
+                        <button class="col btn btn-outline-secondary btn-block btn-cancel" type="button"
+                          (click)="cancelar()">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                          </svg>
+                          Cancelar
+                        </button>
+                      </div>
                   </form>
                 </div>
               </div>
