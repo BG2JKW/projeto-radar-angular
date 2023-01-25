@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
   // ==========================================================================
 
   // ==================== PRODUTO INFO PARA O DASH ====================
-    
+
   public produtoInfoDash:ModeloProdutoInfo[] | any= [];
   public clientesPorEstadoDash:ModeloClientesEstado[] | any = [];
   // ==================================================================
@@ -52,7 +52,7 @@ export class DashboardComponent implements OnInit {
     region: 'BR',
     resolution: 'provinces',
     backgroundColor: '#81d4fa',
-    height: 400,
+    height: 300,
     align: 'center',
     colorAxis: {
       colors: [
@@ -99,7 +99,7 @@ export class DashboardComponent implements OnInit {
     pieSliceText: 'none',
     pieHole: 0.4,
   };
-  
+
   // ==========================================================================
 
   public descPedidosCharts: any = {
@@ -107,7 +107,7 @@ export class DashboardComponent implements OnInit {
     nomeProduto: '',
     valorTotal: 0,
   };
-  
+
   public descProdutosCharts: any = {
     clicado: false,
     nomeProduto: '',
@@ -188,7 +188,7 @@ export class DashboardComponent implements OnInit {
       novo.push([key, valor]);
     }
     this.dadosGanhoPorProduto = novo;
-    console.log(novo);    
+    console.log(novo);
 
     //DADOS PRODUTOS - ESTOQUE
     let listaNovaProdutos = [];
@@ -200,7 +200,7 @@ export class DashboardComponent implements OnInit {
     }
     this.dadosQtdProdEstoqueDash = listaNovaProdutos;
     console.log(listaNovaProdutos);
-    
+
     /* --------------------------------------------------------------------------------------------------*/
 
     console.log('Lista estado', this.dadosMapaDeCalor);
@@ -220,7 +220,7 @@ export class DashboardComponent implements OnInit {
           teste[dado[0]] = dado[1];
         }
       }
-      
+
       this.descProdutosCharts = {
         clicado: true,
         nomeProduto: year,

@@ -4,12 +4,12 @@
   </div>
 </div> -->
 
-<div id="layoutSidenav">
+<!-- <div id="layoutSidenav">
 
   <div id="layoutSidenav_content">
     <main>
       <div class="container-fluid px-4">
-        <!--Conteudo-->
+        Conteudo
         <div class="cantainer">
           <div class="row justify-content-center">
             <div class="col-lg-7">
@@ -20,20 +20,20 @@
                   </h3>
                 </div>
                 <div class="card-body">
-          <!-- =========[ Começo do form ] ========= -->
-                  <!-- <form #form="ngForm" aqui_precisa_de_NGIF> -->
+          =========[ Começo do form ] =========
+                  <form #form="ngForm" aqui_precisa_de_NGIF>
                   <form [formGroup]="cadastroForm" (ngSubmit)="criarCampanha()">
                     <div class="row mb-3">
-                      <div class="col-md-6">
+                      <div class="col-md-6 mb-3">
                         <div class="form-floating mb-3 mb-md-0">
                           <input class="form-control" type="text" id="nome" name="nome"
                             formControlName="nome"/>
-                          <label for="nome">Nome</label>
+                          <label for="nome">Nome da empresa</label>
                         </div>
                       </div>
 
-                      <div class="col-md-6">
-                        <div class="form-floating">
+                      <div class="col-md-6 mb-3 ml-2">
+                        <div class="form-floating ">
                           <input
                             class="form-control"
                             type="text"
@@ -41,11 +41,50 @@
                             name="descricao"
                             formControlName="descricao"
                           />
-                          <label for="valor">Descrição</label>
+                          <label for="valor">Qual produto deseja divulgar?</label>
                         </div>
                       </div>
 
-                      <div class="col-md-6">
+                      <div class="col-md-6 mb-3">
+                        <div class="form-floating">
+                          <input
+                            class="form-control"
+                            type="text"
+                            id="valor"
+                            name="descricao"
+                            formControlName="urlImg"
+                          />
+                          <label for="valor">Em qual estado deseja rodar a campanha</label>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 mb-3 ml-2">
+                        <div class="form-floating">
+                          <input
+                            class="form-control"
+                            type="text"
+                            id="valor"
+                            name="descricao"
+                            formControlName="urlImg"
+                          />
+                          <label for="valor">Url da imagem</label>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 mb-3 ">
+                        <div class="form-floating">
+                          <input
+                            class="form-control"
+                            type="text"
+                            id="valor"
+                            name="descricao"
+                            formControlName="urlImg"
+                          />
+                          <label for="valor">Url da imagem</label>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 mb-3 ml-2">
                         <div class="form-floating">
                           <input
                             class="form-control"
@@ -78,4 +117,77 @@
       </div>
     </main>
   </div>
-</div>
+</div> -->
+<div class="cantainer">
+  <div class="row justify-content-center">
+    <div class="col-lg-7">
+      <div class="card shadow-lg border-0 rounded-lg mt-5">
+        <div class="card-header">
+          <h3 class="text-center font-weight-light my-4">
+            Criar campanha
+          </h3>
+        </div>
+
+                      <!-- =========[ Começo do form ] ========= -->
+
+          <form class="card-body" [formGroup]="cadastroForm" (ngSubmit)="criarCampanha()">
+            <div class="form-row justify-content-center">
+
+              <div class="col-md-6 mb-3">
+                <div class="form-floating mb-1 mb-md-0">
+                  <input class="form-control" type="text" id="nome" name="nome"
+                    formControlName="nome"/>
+                  <label for="nome">Nome da empresa</label>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3 ">
+                <div class="form-floating ">
+                  <input class="form-control" type="text"id="valor"name="descricao" formControlName="descricao" />
+                  <label for="valor">Qual produto deseja divulgar?</label>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <div class="form-floating">
+                  <input class="form-control" type="text" id="valor" name="descricao" formControlName="urlImg" />
+                  <label for="valor">Em qual estado deseja rodar a campanha</label>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <div class="form-floating">
+                  <input class="form-control" type="text" id="valor" name="descricao" formControlName="urlImg" />
+                  <label for="valor">Url da imagem</label>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3 ">
+                <div class="form-floating">
+                  <input class="form-control" type="text" id="valor" name="descricao" formControlName="urlImg" />
+                  <label for="valor">Url da imagem</label>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <div class="form-floating">
+                  <input class="form-control" type="text" id="valor" name="descricao" formControlName="urlImg" />
+                  <label for="valor">Url da imagem</label>
+                </div>
+              </div>
+            </div>
+            <div class="container align-items-center ">
+              <div class="">
+                <button class="btn btn-primary btn-block" type="submit">
+                  Salvar
+                </button>
+                <button class="btn btn-primary btn-block" type="button" >
+                  Cancelar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

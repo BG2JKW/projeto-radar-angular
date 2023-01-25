@@ -12,7 +12,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
-
   /**** Novas cores baseadas no RADAR ****/
   --bg-color-main: #B0C4DE;
   --btn-color-sucess: #40E0D0;
@@ -71,6 +70,20 @@
   --bs-body-color: #212529;
   --bs-body-bg: #fff;
 }
+
+/***** Estilos criados *****/
+.table-round-corner {
+  width: 100%;
+  text-align: center;
+  overflow:hidden;
+  border: solid #ccc 1px;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+}
+
+/****************************/
+
 
 *,
 *::before,

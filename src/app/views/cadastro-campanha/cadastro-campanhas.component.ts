@@ -44,11 +44,7 @@ export class CadastroCampanhasComponent implements OnInit {
   }
 
   public criarCampanha(): void {
-    this.campanhaService.criarCampanha({
-      nome: "Wallace",
-      descricao: "Uma desc",
-      url_foto_prateleira: "www.google.com"
-    }).subscribe(() => {
+    this.campanhaService.criarCampanha(this.cadastroForm.value).subscribe(() => {
       this.router.navigate(['/campanhas'])
     });
   }
