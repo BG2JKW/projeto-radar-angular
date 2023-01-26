@@ -45,7 +45,7 @@ sobre as informações do sistema radar. <br> O objetivo é melhorar a experiên
 
 
 
-   <a href="https://www.youtube.com/" target="_blank"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"    target="_blank"></a>
+   <a href="https://www.youtube.com/watch?v=XWXaWryz76Y" target="_blank"><img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"    target="_blank"></a>
 
 
 
@@ -115,10 +115,8 @@ git clone https://github.com/BG2JKW/Radar_Api
 
 # entrar na pasta do projeto Radar_Api
 
-# instalar dependências
-...
-
 # executar o projeto
+dotnet run Radar_Api.csproj
   
 ```
 
@@ -132,10 +130,11 @@ git clone https://github.com/BG2JKW/projeto-radar-angular
 # entrar na pasta do projeto projeto-Radar-angular
 
 # instalar dependências
-...
+npm install
 
 # executar o projeto
-...
+ng serve
+
 ```
 
 
