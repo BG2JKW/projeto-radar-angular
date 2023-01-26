@@ -49,6 +49,7 @@ export class HomeComponent implements OnInit {
     await this.marcarLojas();
   }
 
+
   center: google.maps.LatLngLiteral = {lat: -15.793889, lng: -47.882778};
   zoom = 5;
   markerOptions: google.maps.MarkerOptions = { 
@@ -60,8 +61,10 @@ export class HomeComponent implements OnInit {
   private marcarLojas(){
     if(this.lojas){
       for(let loja of this.lojas){
-        let cords = { lat: loja.latitude, lng: loja.longitude }
-        this.markerPositions.push(cords);
+        if(loja.latitude && loja.longitude){
+          let cords = { lat: loja.latitude, lng: loja.longitude }
+          this.markerPositions.push(cords);
+        }
       }
     }
   }
