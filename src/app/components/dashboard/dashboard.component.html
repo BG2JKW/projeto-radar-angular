@@ -97,23 +97,27 @@
           [options]="optionsGraficoGanhoPorProduto"
         ></google-chart>
         <div *ngIf="descPedidosCharts.clicado" class="darkcolor text-center">
-          <hr />
-          {{ descPedidosCharts.nomeProduto }}
+         
+        <div>
+          <div class="text-bold">
+            {{ descPedidosCharts.nomeProduto }}
+          </div>
+          <div style="">
           {{ descPedidosCharts.valorTotal | currency : "BRL" : "symbol" : "1.2-2" }}
+          </div>  
         </div>
+      </div>
       </div>
     </div>
 
-    <div class="card mb-4 table-round-corner col mr-4 shadow p-0" style="height: 45vh;">
+    <div class="card p-0 mb-4 table-round-corner col mr-4 shadow " style="height: 45vh;">
       <!-- Card Header - Dropdown -->
       <div class="card-header py-3 d-flex align-items-center justify-content-between">
         <h6 class="m-0 font-weight-bold">Clientes por Região</h6>
       </div>
       <!-- Card Body -->
-      <div class="card-body d-flex justify-content-center p-0">
-        <google-chart
-          style="width: 100vh; height: 100vh;"
-          class="p-0 m-0"
+      <div>
+        <google-chart 
           [type]="tipoGraficoMapaDeCalor"
           [options]="optionsMapaDeCalor"
           [data]="dadosMapaDeCalor"
@@ -175,7 +179,7 @@
         <div class="card-body">
           <google-chart
             class="darkcolor"
-            style="width: 600px; height: 300px; padding: auto"
+            style="width: 80vh; height: 300px; padding: auto"
             (select)="selecionado($event)"
             [options]="optionsGraficoProdutosEstoque"
             [type]="tipoGraficoQtdProdutosEstoque"

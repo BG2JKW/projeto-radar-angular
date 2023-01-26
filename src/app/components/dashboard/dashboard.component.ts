@@ -51,9 +51,9 @@ export class DashboardComponent implements OnInit {
   public optionsMapaDeCalor = {
     region: 'BR',
     resolution: 'provinces',
-    backgroundColor: '#81d4fa',
-    height: 350,
-    align: 'center',
+    backgroundColor: '#fff',
+    height: '100%',
+    width: 820,
     colorAxis: {
       colors: [
         '#EAF2F8',
@@ -79,6 +79,8 @@ export class DashboardComponent implements OnInit {
     bar: { groupWidth: '80%' },
     pieSliceText: 'label',
     legend: { position: 'none' },
+    colors: '#008B8B'
+  
   };
   // ==========================================================================
 
@@ -94,7 +96,7 @@ export class DashboardComponent implements OnInit {
     bar: { groupWidth: '80%' },
     legend: { position: 'none' },
     hAxis: { textPosition: 'none' },
-    // vAxis: { textPosition: 'none' },
+    colors: '#19b4b8'    // vAxis: { textPosition: 'none' },
   };
   // ==========================================================================
 
@@ -103,7 +105,10 @@ export class DashboardComponent implements OnInit {
   tipoGraficoGanhosPorProduto: ChartType = ChartType.PieChart;
   public optionsGraficoGanhoPorProduto = {
     pieSliceText: 'none',
-    pieHole: 0.6,
+    pieHole: 0.7,
+    legend: { position: 'none' },
+    width: '100%',
+    height: 450
   };
 
   // ==========================================================================

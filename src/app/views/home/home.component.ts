@@ -55,9 +55,6 @@ export class HomeComponent implements OnInit {
     maxZoom: 4.5,
     minZoom: 4.5,
     draggable: false,
-    // draggable: false,
-    // zoomControl: false,
-    // scrollwheel: false,
   }
 
    center: google.maps.LatLngLiteral = {lat: -15.793889, lng: -47.882778};
