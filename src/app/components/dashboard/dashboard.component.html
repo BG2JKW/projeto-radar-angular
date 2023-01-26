@@ -81,24 +81,26 @@
 
   <div class="row">
 
+
     <div class="card mb-4 table-round-corner col-lg-7 mr-4 ml-4 shadow">
       <!-- Relatório Anual -->
-      <div class="card-header py-3 ">
-        <h6 class="m-0 font-weight-bold">
-          Movimentação de produto
-        </h6>
+      <div class="card-header py-3 w-100 ">
+        <h6 class="m-0 font-weight-bold orange">Ganho por Medicamento</h6>
       </div>
       <!-- Card Body -->
-      <div class="card-body justify-content-center">
-        <!-- <div class="pt-4 pb-2 text-center"> -->
-          <google-chart
-            style="width: 600px; height: 300px; padding: auto"
-            [type]="tipoGraficoMovimentacaoProdutos"
-            [data]="dataGraficoMovimentacaoProduto"
-            [options]="optionsGraficoMovimentacaoProduto"
-          >
-          </google-chart>
-        <!-- </div> -->
+      <div class="card-body d-flex justify-content-center">
+        <google-chart class="darkcolor"
+          style="width: 600px; height: 300px; padding: auto"
+          (select)="selecionadoPizza($event)"
+          [type]="tipoGraficoGanhosPorProduto"
+          [data]="dadosGanhoPorProduto"
+          [options]="optionsGraficoGanhoPorProduto"
+        ></google-chart>
+        <div *ngIf="descPedidosCharts.clicado" class="darkcolor text-center">
+          <hr />
+          {{ descPedidosCharts.nomeProduto }}
+          {{ descPedidosCharts.valorTotal | currency : "BRL" : "symbol" : "1.2-2" }}
+        </div>
       </div>
     </div>
 
@@ -123,39 +125,55 @@
 
   <div class>
     <div class="row">
-      <div class="card mb-4 table-round-corner col mr-4 ml-4 shadow">
-        <!-- Relatório Anual -->
-        <div class="card-header py-3 w-100 ">
-          <h6 class="m-0 font-weight-bold orange">Ganho por Medicamento</h6>
+      <!-- <div class="card mb-4 table-round-corner col mr-4 ml-4 shadow">
+        <div class="card-header py-3 ">
+          <h6 class="m-0 font-weight-bold">
+            Movimentação de produto
+          </h6>
         </div>
-        <!-- Card Body -->
+        <div class="card-body justify-content-center">
+            <google-chart
+              [type]="tipoGraficoMovimentacaoProdutos"
+              [data]="dataGraficoMovimentacaoProduto"
+              [options]="optionsGraficoMovimentacaoProduto"
+            >
+            </google-chart>
+        </div>
+      </div> -->
+
+      <div class="card mb-4 table-round-corner col mr-4 shadow ml-4">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold orange">
+            Movimentação de produto
+          </h6>
+        </div>
         <div class="card-body">
-          <google-chart class="darkcolor"
+          <google-chart
+            class="darkcolor"
             style="width: 600px; height: 300px; padding: auto"
-            (select)="selecionadoPizza($event)"
-            [type]="tipoGraficoGanhosPorProduto"
-            [data]="dadosGanhoPorProduto"
-            [options]="optionsGraficoGanhoPorProduto"
+            (select)="selecionado($event)"
+            [type]="tipoGraficoMovimentacaoProdutos"
+            [data]="dataGraficoMovimentacaoProduto"
+            [options]="optionsGraficoMovimentacaoProduto"
           ></google-chart>
-          <div *ngIf="descPedidosCharts.clicado" class="darkcolor text-center">
-            <hr />
-            {{ descPedidosCharts.nomeProduto }}
-            {{ descPedidosCharts.valorTotal | currency : "BRL" : "symbol" : "1.2-2" }}
+          <div *ngIf="descProdutosCharts.clicado" class="text-center darkcolor">
+
+            {{ descProdutosCharts.nomeProduto }}<br />
+            Quantidade Vendida: {{ descProdutosCharts.qtdVendida }}<br />
+            Quantidade em Estoque: {{ descProdutosCharts.qtdEstoque }}
           </div>
         </div>
       </div>
 
       <div class="card mb-4 table-round-corner col mr-4 shadow">
-        <!-- Card Header - Dropdown -->
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
           <h6 class="m-0 font-weight-bold orange">
             Quantidade de Produtos em Estoque
           </h6>
         </div>
-        <!-- Card Body -->
         <div class="card-body">
           <google-chart
-          class="darkcolor"
+            class="darkcolor"
             style="width: 600px; height: 300px; padding: auto"
             (select)="selecionado($event)"
             [options]="optionsGraficoProdutosEstoque"
@@ -163,7 +181,6 @@
             [data]="dadosQtdProdEstoqueDash"
           ></google-chart>
           <div *ngIf="descProdutosCharts.clicado" class="text-center darkcolor">
-
             {{ descProdutosCharts.nomeProduto }}<br />
             Quantidade Vendida: {{ descProdutosCharts.qtdVendida }}<br />
             Quantidade em Estoque: {{ descProdutosCharts.qtdEstoque }}
