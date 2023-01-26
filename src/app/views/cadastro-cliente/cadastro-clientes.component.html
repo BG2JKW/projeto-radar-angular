@@ -26,7 +26,7 @@
 
                       <div class="col">
                         <div class="form-floating">
-                          <input class="form-control" type="text" id="cpf" name="cpf" [(ngModel)]="cliente.cpf" />
+                          <input class="form-control" type="text" id="cpf" mask="000.000.000-00" name="cpf" [(ngModel)]="cliente.cpf" />
                           <label for="cpf">CPF</label>
                         </div>
                       </div>
@@ -43,84 +43,14 @@
 
                       <div class="col">
                         <div class="form-floating">
-                          <input class="form-control" type="text" id="cpf" name="cpf" [(ngModel)]="cliente.telefone" />
+                          <input class="form-control" type="text" id="cpf" mask="(00) 00000-0000" name="cpf" [(ngModel)]="cliente.telefone" />
                           <label for="telefone">Telefone</label>
                         </div>
                       </div>
                     </div>
-
-                    <!-- <div class="row mb-3">
-                      <div class="col-md-2">
-                        <div class="form-floating mb-3 mb-md-0">
-                          <input class="form-control" type="text" id="cep" name="cep" [(ngModel)]="cliente.cep"
-                            (change)="consultaCep($event)" [ngClass]="cepValido === false ? 'alert-danger' : ''" />
-                          <label for="CEP">CEP</label>
-                        </div>
-                      </div>
-
-                      <div class="col">
-                        <div class="form-floating mb-3 mb-md-0 mr-3 ml-3">
-                          <input class="form-control" type="text" id="cidade" name="cidade" [(ngModel)]="cliente.cidade"
-                            [disabled]="true" [ngClass]="cepValido === false ? 'alert-danger' : ''" />
-                          <label for="cidade">Cidade</label>
-                        </div>
-                      </div>
-
-                      <div class="col-2 col-md-1">
-                        <div class="form-floating mb-3 mb-md-0">
-                          <input class="form-control" type="text" id="estado" name="estado" [(ngModel)]="cliente.estado"
-                            [disabled]="true" [ngClass]="cepValido === false ? 'alert-danger' : ''" />
-                          <label for="nome">Estado</label>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <div class="col-md-11">
-                        <div class="form-floating mb-3 mb-md-0 mr-3">
-                          <input class="form-control" type="text" id="logradouro" name="logradouro"
-                            [(ngModel)]="cliente.logradouro" [disabled]="true"
-                            [ngClass]="cepValido === false ? 'alert-danger' : ''" />
-                          <label for="logradouro">Logradouro</label>
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="form-floating">
-                          <input class="form-control" type="text" id="cpf" name="cpf" [(ngModel)]="cliente.telefone" />
-                          <label for="numero">Número</label>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <div class="col">
-                        <div class="form-floating mb-3 mb-md-0 mr-3">
-                          <input class="form-control" type="text" id="bairro" name="bairro" [(ngModel)]="cliente.bairro"
-                            [disabled]="true" [ngClass]="cepValido === false ? 'alert-danger' : ''" />
-                          <label for="bairro">Bairro</label>
-                        </div>
-                      </div>
-                      <div class="col">
-                        <div class="form-floating mb-3 mb-md-0">
-                          <input class="form-control" type="text" id="complemento" name="complemento"
-                            [(ngModel)]="cliente.complemento" />
-                          <label for="complemento">complemento</label>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="mt-4 mb-0">
-                      <div class="d-grid">
-                        <button class="btn btn-primary btn-block" type="button" (click)="salvar()">
-                          Salvar
-                        </button>
-                        <button class="btn btn-primary btn-block" type="button" (click)="cancelar()">
-                          Cancelar
-                        </button>
-                      </div>
-                    </div> -->
                     <div class="row">
                       <div class="form-floating mb-3 col">
-                        <input class="form-control" type="text" id="cep" name="cep"
+                        <input class="form-control" type="text" id="cep" mask="00000-000" name="cep"
                             [(ngModel)]="cliente.cep" (change)="consultaCep($event)"
                             [ngClass]="cepValido === false ? 'alert-danger' : ''" />
                         <label for="CEP">CEP</label>
@@ -156,7 +86,7 @@
 
                       <div class="col col-lg-2 ml-3 mr-3">
                         <div class="form-floating mb-3 mb-md-0">
-                            <input class="form-control" type="text" id="numero" name="numero"
+                            <input class="form-control" type="text" maxlength="10" id="numero" name="numero"
                                 [(ngModel)]="cliente.numero" />
                             <label for="numero">Número</label>
                         </div>

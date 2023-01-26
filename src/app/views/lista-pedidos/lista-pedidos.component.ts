@@ -18,7 +18,7 @@ export class ListaPedidosComponent implements OnInit {
   ) { }
 
   public pedidos:PedidoCPF[] | undefined = []
-  private pedidoServico:PedidoServico = {} as PedidoServico 
+  private pedidoServico:PedidoServico = {} as PedidoServico
 
   ngOnInit(): void {
     this.pedidoServico = new PedidoServico(this.http)
@@ -27,7 +27,7 @@ export class ListaPedidosComponent implements OnInit {
 
   private async listaPedidos(){ //METODO QUE LISTA OS PRODUTOS PEGANDO DA API JUNTO COM O 'PRODUTO SERVICO'
     this.pedidos = await this.pedidoServico.listarPedidosComCpf();
-  
+
     }
 
   novoPedido(){
@@ -38,6 +38,6 @@ export class ListaPedidosComponent implements OnInit {
     this.router.navigateByUrl(`/cadastro-pedido/${id}`)
   }
 
-  
+
 
 }

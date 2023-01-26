@@ -26,6 +26,7 @@ import { NotFoundComponent } from './views/not-found/not-found.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { NgxMaskModule } from 'ngx-mask';
 
 registerLocaleData(ptBr)
 
@@ -58,11 +59,15 @@ registerLocaleData(ptBr)
     GoogleMapsDemoModule,
     ReactiveFormsModule,
     GoogleMapsModule,
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters: false,
+    })
   ],
   providers: [AuthService, AutenticadoGuard,
     {provide: LOCALE_ID, useValue: 'pt'},
-    {provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL'}
+    {provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL'},
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

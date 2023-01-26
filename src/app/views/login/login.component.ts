@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     debugger
     let logado = await this.authService.fazerLogin({email: this.email,senha: this.senha });
     if(logado == true){
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/home');
     }else{
       this.mensagem = "Email ou senha inválidos.";
       return console.log("nada");

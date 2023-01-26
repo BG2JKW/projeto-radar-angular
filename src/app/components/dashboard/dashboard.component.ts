@@ -51,9 +51,9 @@ export class DashboardComponent implements OnInit {
   public optionsMapaDeCalor = {
     region: 'BR',
     resolution: 'provinces',
-    backgroundColor: '#81d4fa',
-    height: 300,
-    align: 'center',
+    backgroundColor: '#fff',
+    height: '100%',
+    width: 820,
     colorAxis: {
       colors: [
         '#EAF2F8',
@@ -76,20 +76,27 @@ export class DashboardComponent implements OnInit {
   public dadosQtdProdEstoqueDash: any[] = [];
   tipoGraficoQtdProdutosEstoque: ChartType = ChartType.Bar;
   public optionsGraficoProdutosEstoque = {
+    bar: { groupWidth: '80%' },
     pieSliceText: 'label',
     legend: { position: 'none' },
+    colors: '#008B8B'
+  
   };
   // ==========================================================================
 
 
   // ==================== CONFIG MOVIMENTACAO PRODUTO ====================
   public dataGraficoMovimentacaoProduto: any = [];
+
   tipoGraficoMovimentacaoProdutos: ChartType = ChartType.Bar;
+
   public optionsGraficoMovimentacaoProduto = {
-    width: 600,
-    legend: { position: 'none' },
+    // heigth: 800,
+    width: 850,
     bar: { groupWidth: '80%' },
-    
+    legend: { position: 'none' },
+    hAxis: { textPosition: 'none' },
+    colors: '#19b4b8'    // vAxis: { textPosition: 'none' },
   };
   // ==========================================================================
 
@@ -98,8 +105,10 @@ export class DashboardComponent implements OnInit {
   tipoGraficoGanhosPorProduto: ChartType = ChartType.PieChart;
   public optionsGraficoGanhoPorProduto = {
     pieSliceText: 'none',
-    pieHole: 0.4,
-    
+    pieHole: 0.7,
+    legend: { position: 'none' },
+    width: '100%',
+    height: 450
   };
 
   // ==========================================================================

@@ -41,11 +41,13 @@ export class CadastroLojasComponent implements OnInit {
   }
  
   async salvar(){
+    debugger
     if(this.loja && this.loja.id > 0){
       await this.lojaServico.editarLoja(this.loja)
     }
     else{
-      await this.lojaServico.criarLoja({
+     
+     var teste =  await this.lojaServico.criarLoja({
         id: 0, 
         nome: this.loja?.nome ,
         observacao: this.loja?.observacao,
@@ -56,9 +58,10 @@ export class CadastroLojasComponent implements OnInit {
         cidade: this.loja?.cidade,
         estado: this.loja?.estado?.toUpperCase(),
         complemento: this.loja?.complemento,
-        latitude: 0,
-        longitude: 0,
+        latitude: this.loja?.latitude,
+        longitude: this.loja?.longitude,
       });
+      console.log(teste);
     }
     this.router.navigateByUrl("/lista-lojas")
   }
