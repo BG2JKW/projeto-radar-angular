@@ -1,5 +1,24 @@
 <div class="d-flex justify-content-between p-3 rounded shadow">
   <div style="background-color:white;">
+    <table class="table">
+      <thead class="thead-dark">
+        FATURAMENTO POR ESTADO
+        <tr>
+          <th scope="col">ESTADO</th>
+          <th scope="col">FATURAMENTO</th>
+          <th scope="col">PEDIDOS TOTAIS</th>
+        </tr>
+      </thead>
+      <tbody  >
+        <tr *ngFor="let pedidoEstado of pedidosEstados">
+          <td>{{pedidoEstado.estado}}</td>
+          <td>{{pedidoEstado.valor_total_faturado?.toString() | currency: "R$"}}</td>
+          <td>{{pedidoEstado.qtd_pedidos}}</td>
+        </tr>
+        <tr>
+               </tbody>
+    </table>
+    
     
   </div>
 
