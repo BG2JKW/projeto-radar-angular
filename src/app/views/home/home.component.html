@@ -1,8 +1,8 @@
-<div class="d-flex justify-content-between p-3 rounded shadow">
-  <div style="background-color:white;">
-    <table class="table">
-      <thead class="thead-dark">
-        FATURAMENTO POR ESTADO
+<div class="row ccontainer-fluid px-4" style="height: 60vh;">
+  <div class="col table table-round-corner mb-0 mt-4 mr-4 ml-4 shadow" >
+    <h4 class="mt-4 mb-4">Faturamento por estado</h4>
+    <table class="table table-round-corner" style="height: 100%;">
+      <thead>
         <tr>
           <th scope="col">ESTADO</th>
           <th scope="col">FATURAMENTO</th>
@@ -16,17 +16,17 @@
           <td>{{pedidoEstado.qtd_pedidos}}</td>
         </tr>
         <tr>
-               </tbody>
+      </tbody>
     </table>
-    
-    
   </div>
 
-  <div style="background-color:white;" >
-    <h3 class="text-center">Nossas Lojas</h3>
-    <google-map height="700px" width="700px" [center]="center" [zoom]="zoom">
-      <map-marker #marker="mapMarker" *ngFor="let markerPosition of markerPositions"
-        [position]="markerPosition" [options]="markerOptions"></map-marker>
-    </google-map>
+  <div  class="col table-round-corner mt-4 mr-4 shadow d-flex justify-content-center">
+    <div >
+      <h4 class="text-center mt-4 mb-2">Nossas Lojas</h4>
+      <google-map [options]="mapOptions" height="80vh" width="100vw" [center]="center" [zoom]="zoom">
+        <map-marker #marker="mapMarker" *ngFor="let markerPosition of markerPositions"
+          [position]="markerPosition" [options]="markerOptions"></map-marker>
+      </google-map>
+    </div>
   </div>
 </div>

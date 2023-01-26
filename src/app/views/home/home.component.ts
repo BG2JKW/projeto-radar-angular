@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
         );
   }
 
- 
+
   public pedidosEstados:ModeloPedidosEstado[] | undefined = []
   public lojas:Loja[] | undefined = []
 
@@ -49,10 +49,17 @@ export class HomeComponent implements OnInit {
     await this.marcarLojas();
   }
 
+  public mapOptions: google.maps.MapOptions = {
+    scrollwheel: false
+    // draggable: false,
+    // zoomControl: false,
+    // scrollwheel: false,
+  }
+
   center: google.maps.LatLngLiteral = {lat: -15.793889, lng: -47.882778};
   zoom = 5;
-  markerOptions: google.maps.MarkerOptions = { 
-    draggable: false, 
+  markerOptions: google.maps.MarkerOptions = {
+    draggable: false,
     icon: 'https://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/Map-Marker-Marker-Inside-Azure-icon.png',
   };
   markerPositions: google.maps.LatLngLiteral[] = [{lat:  -15.793889, lng: -47.882778}];
