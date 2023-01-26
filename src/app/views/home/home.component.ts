@@ -51,7 +51,9 @@ export class HomeComponent implements OnInit {
 
 
   public mapOptions: google.maps.MapOptions = {
-    scrollwheel: false
+    maxZoom: 4.5,
+    minZoom: 4.5,
+    draggable: false,
     // draggable: false,
     // zoomControl: false,
     // scrollwheel: false,
