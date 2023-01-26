@@ -44,6 +44,7 @@ export class HomeComponent implements OnInit {
 
   private async listaLojas(){ //METODO QUE LISTA OS PRODUTOS PEGANDO DA API JUNTO COM O 'PRODUTO SERVICO'
     this.lojas = await this.lojaServico.listarLojas();
+    console.log(this.lojas);
     this.pedidosEstados = await this.pedidoEstadoServico.modeloPedidosPorEstado();
     console.log(this.pedidosEstados);
     await this.marcarLojas();
@@ -59,13 +60,13 @@ export class HomeComponent implements OnInit {
     // scrollwheel: false,
   }
 
-  center: google.maps.LatLngLiteral = {lat: -15.793889, lng: -47.882778};
-  zoom = 5;
-  markerOptions: google.maps.MarkerOptions = {
-    draggable: false,
-    icon: 'https://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/Map-Marker-Marker-Inside-Azure-icon.png',
-  };
-  markerPositions: google.maps.LatLngLiteral[] = [{lat:  -15.793889, lng: -47.882778}];
+   center: google.maps.LatLngLiteral = {lat: -15.793889, lng: -47.882778};
+   zoom = 5;
+   markerOptions: google.maps.MarkerOptions = {
+      draggable: false,
+      icon: "",
+   };
+   markerPositions: google.maps.LatLngLiteral[] = [{lat:  -15.793889, lng: -47.882778}];
 
   private marcarLojas(){
     if(this.lojas){

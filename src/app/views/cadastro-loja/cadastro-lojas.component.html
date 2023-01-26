@@ -26,9 +26,9 @@
 
                                       <div class="row">
                                         <div class="form-floating mb-3 col">
-                                          <input class="form-control" type="text" id="cep" name="cep"
+                                          <input class="form-control" mask="00000-000" type="text" id="cep" name="cep"
                                               [(ngModel)]="loja.cep" (change)="consultaCep($event)"
-                                              [ngClass]="cepValido === false ? 'alert-danger' : ''" />
+                                              [ngClass]="cepValido === false ?  'alert-danger' : ''" />
                                           <label for="CEP">CEP</label>
                                         </div>
                                         <div class="col mr-3 ml-3">
@@ -62,7 +62,7 @@
 
                                           <div class="col col-lg-2 ml-3 mr-3">
                                             <div class="form-floating mb-3 mb-md-0">
-                                                <input class="form-control" type="text" id="numero" name="numero"
+                                                <input class="form-control" type="text" maxlength="12" id="numero" name="numero"
                                                     [(ngModel)]="loja.numero" />
                                                 <label for="numero">Número</label>
                                             </div>
