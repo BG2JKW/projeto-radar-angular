@@ -28,7 +28,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { NgxMaskModule } from 'ngx-mask';
 
-
 registerLocaleData(ptBr)
 
 @NgModule({
@@ -69,6 +68,6 @@ registerLocaleData(ptBr)
     {provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL'},
   ],
   bootstrap: [AppComponent],
-  
+
 })
 export class AppModule { }

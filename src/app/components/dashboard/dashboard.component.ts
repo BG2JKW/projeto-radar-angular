@@ -76,6 +76,7 @@ export class DashboardComponent implements OnInit {
   public dadosQtdProdEstoqueDash: any[] = [];
   tipoGraficoQtdProdutosEstoque: ChartType = ChartType.Bar;
   public optionsGraficoProdutosEstoque = {
+    bar: { groupWidth: '80%' },
     pieSliceText: 'label',
     legend: { position: 'none' },
   };
@@ -84,16 +85,16 @@ export class DashboardComponent implements OnInit {
 
   // ==================== CONFIG MOVIMENTACAO PRODUTO ====================
   public dataGraficoMovimentacaoProduto: any = [];
+
   tipoGraficoMovimentacaoProdutos: ChartType = ChartType.Bar;
+
   public optionsGraficoMovimentacaoProduto = {
     // heigth: 800,
     width: 850,
-    // legend: { position: 'none' },
     bar: { groupWidth: '80%' },
-    // width: 600,
-    height: 400,
     legend: { position: 'none' },
-    isStacked: true
+    hAxis: { textPosition: 'none' },
+    // vAxis: { textPosition: 'none' },
   };
   // ==========================================================================
 
@@ -102,8 +103,7 @@ export class DashboardComponent implements OnInit {
   tipoGraficoGanhosPorProduto: ChartType = ChartType.PieChart;
   public optionsGraficoGanhoPorProduto = {
     pieSliceText: 'none',
-    pieHole: 0.4,
-
+    pieHole: 0.6,
   };
 
   // ==========================================================================
